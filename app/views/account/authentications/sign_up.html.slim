@@ -1,0 +1,46 @@
+= render 'sidebar'
+
+.central-box.registration.step-1
+  .title Регистрация. Шаг 1
+  form (action = "#")
+
+  .input-block
+    label Как вас зовут?
+    input (type = "text" name = "username" placeholder = "Иван Петрович" autocomplete = "off")
+    .error
+
+  .input-block
+    label Ваш E-mail
+    input (type = "text" name = "email" placeholder = "petrov@mail.ru" autocomplete = "off")
+    .error
+
+  .input-block
+    label Придумайте пароль
+    input (type = "text" name = "password" placeholder = "*******" autocomplete = "off")
+    .error
+
+  .buttons-row
+    .button#registration-step-1-button Продолжить
+
+
+.central-box.registration.step-2
+  .title Регистрация. Шаг 2
+  form (action = "#")
+
+  .input-block
+    label Как называется ваша компания?
+    input (type = "text" name = "company_name" placeholder = "«Рога и копыта»" autocomplete = "off")
+    .error
+
+  .input-block
+    label Адрес вашего сайта
+    input (type = "text" name = "site_url" placeholder = "roga-kopita.ru" autocomplete = "off")
+    .error
+
+  .input-block
+    label Email для уведомления о новых отзывах
+    input (type = "text" name = "widget_email" placeholder = "support@roga-kopita.ru" autocomplete = "off")
+    .error
+
+  .buttons-row
+    .button#registration-step-2-button Завершить

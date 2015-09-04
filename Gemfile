@@ -69,6 +69,9 @@ gem 'gon'
 gem 'responders'
 gem 'bourbon'
 
+# Валидаторы
+gem 'email_validator'
+
 # Delay jobs
 gem 'activejob'
 gem "sidekiq"

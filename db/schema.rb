@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150903170309) do
 
   create_table "users", force: :cascade do |t|
     t.integer  "account_id"
+    t.string   "email"
     t.string   "name"
     t.string   "password"
     t.string   "salt"

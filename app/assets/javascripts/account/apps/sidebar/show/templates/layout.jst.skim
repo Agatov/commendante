@@ -38,4 +38,5 @@
     h3.sidebar-navigation-section-title Аккаунт
     ul.sidebar-navigation-section-list
       li Сменить пароль
-      li Выйти из системы
+      li 
+        a (href = "/sign_out") Выйти из системы

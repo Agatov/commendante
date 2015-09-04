@@ -1,0 +1,128 @@
+@import reset
+@import bourbon
+@import account/fonts
+@import account/buttons
+@import account/sidebar
+
+body
+  background: #fff
+  font-family: "OpenSans-Regular"
+  color: #53535B
+
+a
+  font-size: 14px
+  color: #03638F
+  text-decoration: none
+
+.clearfix
+  &:after
+    clear: both
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+
+
+
+.central-box
+  position: fixed
+  top: 50%
+  left: 50%
+  width: 380px
+  margin-left: -190px
+
+  &.registration
+    height: 440px
+    margin-top: -220px
+
+    &.step-2
+      display: none
+
+  &.authentication
+    height: 330px
+    margin-top: -165px
+
+.title
+  font-family: "OpenSans-Semibold"
+  font-size: 24px
+  color: #53535B
+  margin-bottom: 30px
+
+
+.input-block
+  margin-bottom: 25px
+
+  label
+    display: block
+    margin-bottom: 10px
+    font-family: "OpenSans-Regular"
+    font-size: 17px
+    color: #53535B
+
+  .error
+    display: none
+    margin-top: 5px
+    font-family: "OpenSans-Regular"
+    font-size: 14px
+    color: #FB666E
+    text-align: right
+
+input
+  width: 380px
+  height: 46px
+  box-sizing: border-box
+  padding: 0px 10px
+  font-family: "OpenSans-Regular"
+  font-size: 16px
+  color: #53535B
+  border: 1px solid #ddd
+  border-radius: 4px
+  outline: none
+  @include transition(all 0.3s ease-in-out)
+
+  @include placeholder
+    color: #7C8A95
+    opacity: 1
+    transition: opacity 0.3s ease
+
+  &:hover
+    border: 1px solid #8AD4E9
+
+  &:focus
+    border: 1px solid #3DB8DB
+
+    @include placeholder
+      opacity: 0
+      transition: opacity 0.3s ease
+
+  &.invalid
+    border: 1px solid #FB666E
+
+
+.buttons-row
+  width: 100%
+  @extend .clearfix
+
+  .button
+    float: right
+
+.button
+  display: block
+  width: 180px
+  height: 46px
+  line-height: 46px
+  text-align: center
+  font-size: 15px
+  cursor: pointer
+  font-family: "OpenSans-Semibold"
+  text-decoration: none
+  transition: .2s all
+  box-sizing: border-box
+  background: #3DB8DB
+  color: #fff
+  border-radius: 4px
+
+
+

@@ -1,5 +1,7 @@
 class AccountsController < ApplicationController
 
+  before_action :authenticate_user!
+  
   layout "account"
 
   def show
@@ -7,10 +9,4 @@ class AccountsController < ApplicationController
     gon.jbuilder template: 'app/views/account/show.json'
     render "account/show"
   end
-
-  def current_user
-    @current_user = User.first
-  end
-
-  helper_method :current_user
 end

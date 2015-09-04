@@ -105,6 +105,8 @@ GEM
     columnize (0.9.0)
     connection_pool (2.2.0)
     debug_inspector (0.0.2)
+    email_validator (1.6.0)
+      activemodel
     erubis (2.7.0)
     execjs (2.5.2)
     faraday (0.9.1)
@@ -294,6 +296,7 @@ DEPENDENCIES
   capistrano3-unicorn
   carrierwave
   coffee-rails (~> 4.1.0)
+  email_validator
   execjs
   font_assets
   gon

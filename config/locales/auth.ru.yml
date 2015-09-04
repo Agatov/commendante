@@ -1,0 +1,6 @@
+ru:
+  auth:
+    user_email_already_exists_error: "Пользователь с таким email уже существует"
+    user_not_found_error: "Пользователя с таким email не существует"
+    wrong_password_error: "Неверный пароль"
+    unknown_error: 'Неизвестная ошибка. Видимо, сегодня не ваш день.'

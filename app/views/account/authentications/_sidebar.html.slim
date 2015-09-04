@@ -1,0 +1,18 @@
+.sidebar
+  .sidebar-top Комменданте
+
+  .sidebar-navigation
+    .sidebar-navigation-section
+      h3.sidebar-navigation-section-title Аккаунт
+      ul.sidebar-navigation-section-list
+        li (class = (current_page?('/sign_in') ? 'active' : nil))
+          a (href = "/sign_in") Авторизация
+
+        li  (class = (current_page?('/sign_up')  ? 'active' : nil))
+          a (href = "/sign_up") Регистрация
+
+        li 
+          a (href = "#") Забыли пароль?
+
+        li 
+          a (href = "/") Вернуться на главную
