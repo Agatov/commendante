@@ -1,0 +1,17 @@
+#sidebar-region
+#main-region
+#modal-region
+#modal-overlay-region
+
+
+javascript:
+  $(function() {
+    AccountApp.start({
+      widget: {
+        reviews_count: gon.widget.reviews_count,
+        new_reviews_count: gon.widget.new_reviews_count,
+        confirmed_reviews_count: gon.widget.new_reviews_count,
+        rejected_reviews_count: gon.widget.rejected_reviews_count
+      }
+    })
+  });

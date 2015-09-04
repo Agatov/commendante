@@ -1,0 +1,1 @@
+json.partial! 'account/reviews/review', collection: @reviews, as: :review

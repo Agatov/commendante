@@ -1,0 +1,11 @@
+html
+  head
+    = csrf_meta_tags
+    = stylesheet_link_tag    'reviews', :media => 'all'
+    = javascript_include_tag 'reviews'
+
+
+    title Комменданте
+
+  body
+    = yield

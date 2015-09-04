@@ -1,0 +1,17 @@
+//= require lib/jquery
+//= require lib/underscore
+//= require lib/nprogress
+//= require lib/backbone
+//= require lib/backbone.wreqr
+//= require skim
+//= require lib/backbone.marionette
+//= require lib/plugins/backbone-relational
+//= require lib/plugins/backbone.validation
+//= require lib/plugins/backbone.stickit
+//= require lib/plugins/backbone.memento
+//= require_tree ./account/config
+// require backbone/nprogress
+//= require account/app
+//= require_tree ./account/entities
+//= require_tree ./account/views
+//= require_tree ./account/apps

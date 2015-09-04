@@ -1,0 +1,41 @@
+.sidebar-top Комменданте
+
+.sidebar-navigation
+
+  .sidebar-navigation-section
+    h3.sidebar-navigation-section-title  Отзывы
+    ul.sidebar-navigation-section-list
+      li (trigger = "show:reviews")
+        | Все отзывы 
+        span.reviews-count = "(#{@reviews_count})"
+      li (trigger = "show:new:reviews")
+        | Новые отзывы 
+        span.new-reviews-count = "(#{@new_reviews_count})"
+      li (trigger = "show:confirmed:reviews")
+        | Одобренные отзывы 
+        span.confirmed-reviews-count = "(#{@confirmed_reviews_count})"
+      li (trigger = "show:rejected:reviews")
+        | Отклоненные отзывы 
+        span.rejected-reviews-count = "(#{@rejected_reviews_count})"
+
+
+  .sidebar-navigation-section
+    h3.sidebar-navigation-section-title FOLLOW UP
+    ul.sidebar-navigation-section-list
+      li Новое сообщение
+      li Массовая рассылка
+      li Шаблоны сообщений
+
+
+  .sidebar-navigation-section
+    h3.sidebar-navigation-section-title Виджет
+    ul.sidebar-navigation-section-list
+      li Установка и опции
+      li Модераторы
+      li Оплата
+
+  .sidebar-navigation-section
+    h3.sidebar-navigation-section-title Аккаунт
+    ul.sidebar-navigation-section-list
+      li Сменить пароль
+      li Выйти из системы

@@ -1,0 +1,68 @@
+@import reset
+@import bourbon
+@import account/fonts
+@import account/buttons
+@import account/sidebar
+@import account/reviews
+@import account/options
+
+
+body
+  background: #fff
+  font-family: "OpenSans-Regular"
+  color: #53535B
+
+a
+  font-size: 14px
+  color: #03638F
+  text-decoration: none
+
+.wrapper
+  width: 620px
+  margin: 0px auto
+  margin-left: 360px
+
+.clearfix
+  &:after
+    clear: both
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+.topbar
+  width: 100%
+  height: 70px
+  line-height: 70px
+  border-bottom: 1px solid #ddd
+  font-family: "OpenSans-Regular"
+  font-size: 28px
+  color: #53535B
+
+section
+  margin-top: 30px
+
+  .title
+    font-family: "OpenSans-Regular"
+    font-size: 24px
+    color: #53535B
+    margin-bottom: 25px
+
+.notice
+  p
+    font-family: "OpenSans-Regular"
+    font-size: 16px
+    line-height: 24px
+    color: #9E9EA6
+    margin-bottom: 15px
+
+    &:last-child
+      margin-bottom: 0px
+
+    strong
+      color: #53535B
+
+.buffer
+  padding: 60px 0
+

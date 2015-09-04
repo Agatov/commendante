@@ -1,0 +1,48 @@
+- switch @moderated
+  - when null
+    .review-status.new Новый отзыв
+
+  - when true
+    .review-status.confirmed Одобренный отзыв
+
+  - when false
+    .review-status.rejected Отклоненный отзыв
+
+.review-header
+  .review-author-avatar
+  .review-author-details
+    .review-author-name = @reviewer_name
+    .review-author-url
+      a (href = "#{@reviewer_url}" target = "_blank") = @reviewer_url
+  .review-right
+    - switch @rate
+      - when 1
+        .review-rate-stars.one-star
+      - when 2
+        .review-rate-stars.two-stars
+      - when 3
+        .review-rate-stars.three-stars
+      - when 4
+        .review-rate-stars.four-stars
+      - when 5
+        .review-rate-stars.five-stars
+    
+    .review-date = @date
+.review-body = @content
+
+
+- switch @moderated
+  - when null
+    .review-actions
+      .button.green (behavior = "confirm") Одобрить
+      .button.red (behavior = "reject") Отклонить
+
+  - when true
+    .review-actions 
+      | Вы одобрили этот отзыв
+      .button.dark-gray (behavior = "cancel") Отмена
+
+  - when false
+    .review-actions 
+      | Вы отклонили этот отзыв
+      .button.dark-gray (behavior = "cancel") Отмена

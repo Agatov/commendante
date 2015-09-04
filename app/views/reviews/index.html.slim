@@ -1,0 +1,28 @@
+= render partial: "reviews/modals", locals: {user: (@user ? @user : nil)}
+.topbar
+  .wrapper
+    .title 
+      = "#{@reviews.count.to_s} "
+      = Russian.p(@reviews.count, "отзыв", "отзыва", "отзывов")
+      = " о компании #{@site.name}"
+    .url
+      a (href = "http://#{@site.url}" target = "_blank") = @site.url
+
+    .button.green.add-review Добавить свой отзыв
+
+
+.wrapper
+  - @reviews.each do |review|
+    .review
+      .review-header
+        .avatar
+          img (src = review.user.avatar_url(:preview))
+        .author
+          .name = review.user.name
+          .url 
+            a (href = "#{review.user.url}") = review.user.url
+        .date = Russian::strftime(review.created_at, "%d %B %H:%M")
+      .review-body
+        .opinion( type = (review.positive? ? "positive" : "negative"))
+          .title = review.title
+          .content = review.content

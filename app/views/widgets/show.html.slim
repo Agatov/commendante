@@ -1,0 +1,22 @@
+javascript:
+  var siteUrl = "ya.ru";
+
+  (function(d, w) {
+    var h = d.getElementsByTagName('head')[0],
+        script = d.createElement('script'),
+        css = d.createElement("link");
+
+
+    script.async = true;
+    script.type = "application/javascript";
+    script.src = (d.location.protocol === 'https:' ? 'https:' : 'http:')
+      + '//localhost:3000/assets/widget.js';
+
+    css.rel = "stylesheet";
+    css.type = "text/css";
+    css.href = "http://localhost:3000/assets/widget.css";
+
+    h.appendChild(script);
+    h.appendChild(css);
+
+  })(document, window)
