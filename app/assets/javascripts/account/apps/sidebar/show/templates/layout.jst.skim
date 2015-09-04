@@ -30,7 +30,7 @@
   .sidebar-navigation-section
     h3.sidebar-navigation-section-title Виджет
     ul.sidebar-navigation-section-list
-      li Установка и опции
+      li (trigger = "show:options") Установка и опции
       li Модераторы
       li Оплата
 

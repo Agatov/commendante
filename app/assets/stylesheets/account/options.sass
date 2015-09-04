@@ -17,9 +17,15 @@
       color: #53535B
       margin-bottom: 15px
 
+      &.update-success
+        span.success
+          display: inline
+
       span.success
+        display: none
         font-family: "OKIcon"
         color: #5AC269
+        font-size: 16px
 
     input
       width: 320px
@@ -32,6 +38,25 @@
       border: 1px solid #ddd
       border-radius: 4px
       outline: none
+      @include transition(all 0.3s ease-in-out)
+
+      @include placeholder
+        color: #7C8A95
+        opacity: 1
+        transition: opacity 0.3s ease
+
+      &:hover
+        border: 1px solid #8AD4E9
+
+      &:focus
+        border: 1px solid #3DB8DB
+
+        @include placeholder
+          opacity: 0
+          transition: opacity 0.3s ease
+
+    input[disabled]
+      background: #ddd
 
     .hint
       margin-top: 15px
@@ -39,3 +64,4 @@
       font-size: 15px
       line-height: 22px
       color: #8C8C95
+  

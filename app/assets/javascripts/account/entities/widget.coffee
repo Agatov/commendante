@@ -2,6 +2,7 @@
 
   class Entities.Widget extends Entities.Model
     url: "/account/widget"
+    idAttribute: 'uid'
 
 
 

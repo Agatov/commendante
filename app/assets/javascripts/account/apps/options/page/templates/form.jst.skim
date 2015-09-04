@@ -1,0 +1,29 @@
+.title Опции
+
+.options-form
+  .option-input-block
+    label 
+      | Название вашей компании 
+      span.success 
+    input (type = "text" name = "company_name" value = "#{@company_name}" placeholder = "Без названия" autocomplete = "off")
+    .hint
+      |
+        Название вашей компании будет отображаться в email и sms сообщениях, которые отправляются вашим клиентам чтобы они оставляли отзывы.
+
+  .option-input-block
+    label 
+      | Адрес сайта 
+      span.success 
+    input (type = "text" name = "site_url" value = "#{@site_url}" placeholder = "example.com" autocomplete = "off")
+    .hint
+      |
+        Укажите адрес сайта (например www.yandex.ru) на котором будет размещен ваш виджет. Это потребуется для пока не знаем для чего.
+
+  .option-input-block
+    label 
+      | Email для уведомлений 
+      span.success 
+    input (type = "text" name = "email" value = "#{@email}" placeholder = "Без названия" autocomplete = "off")
+    .hint
+      |
+        На указанный вами емэйл будут приходить письма с уведомлениями о поступлении новых отзывов.
