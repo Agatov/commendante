@@ -39,7 +39,7 @@ $ ->
   review.find(".reviewer-name").text data.reviewer_name
   review.find(".reviewer-url").text data.reviewer_url
   review.find(".review-date").text data.date
-  review.find(".review-body").html nl2br(data.content)
+  review.find(".review-body").html decorateText(data.content)
   review.find(".reviewer-avatar img").attr "src", data.reviewer_avatar
 
   review.find(".review-rate-stars")

@@ -23,8 +23,9 @@ window.getStarsClassByRate = (rate) ->
 
 
 
-window.nl2br = (str) ->
-  return str.replace(/([^>])\n/g, '$1<br />')
+window.decorateText = (str) ->
+  lines = str.replace(/[\r\n]+/g, '\n').split("\n")
+  "<p>" + lines.join("</p><p>") + "</p>"
 
 
 

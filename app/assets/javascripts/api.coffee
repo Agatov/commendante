@@ -5,7 +5,7 @@ $ ->
 
     cmdtWidgetButton = document.createElement("div")
     $(cmdtWidgetButton).addClass "cmdt-widget-button"
-    $(cmdtWidgetButton).text "#{Commendante.Data.reviews_count} отзывов"
+    $(cmdtWidgetButton).html "<div class = 'cmdt-button-reviews-count'>#{Commendante.Data.reviews_count}</div> #{Commendante.Data.reviews_count_text}"
 
     cmdtOverlay = document.createElement("div")
     $(cmdtOverlay).addClass("cmdt-overlay")
@@ -44,6 +44,7 @@ $ ->
 
     $(cmdtWidgetButton).on "click", -> Commendante.API.showPanel()
     $(cmdtCloseOverlayButton).on "click", -> Commendante.API.hidePanel()
+    $(cmdtOverlay).on "click", -> Commendante.API.hidePanel()
 
 Commendante.API = 
 
@@ -132,7 +133,7 @@ Commendante.API =
         </div>
 
         <div class = "cmdt-review-body">
-          #{data.content}
+          #{Commendante.API.decorateText(data.content)}
         </div>
       </div>
     """
@@ -153,5 +154,9 @@ Commendante.API =
       when 3 then return "three-stars"
       when 4 then return "four-stars"
       when 5 then return "five-stars"
+
+  decorateText: (str) ->
+    lines = str.replace(/[\r\n]+/g, '\n').split("\n")
+    "<p>" + lines.join("</p><p>") + "</p>"
 
 

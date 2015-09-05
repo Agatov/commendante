@@ -9,6 +9,7 @@
 //= require lib/plugins/backbone.validation
 //= require lib/plugins/backbone.stickit
 //= require lib/plugins/backbone.memento
+//= require lib/perfect-scrollbar.jquery
 //= require_tree ./account/config
 // require backbone/nprogress
 //= require account/app

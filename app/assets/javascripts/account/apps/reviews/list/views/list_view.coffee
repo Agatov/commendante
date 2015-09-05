@@ -10,6 +10,14 @@
       "click .button[behavior=reject]": -> @trigger "reject:button:click", @model
       "click .button[behavior=cancel]": -> @trigger "cancel:button:click", @model
 
+    onBeforeRender: ->
+      @decorateContent()
+      console.log @model.get("content")
+
+    decorateContent: ->
+      lines = @model.get("content").replace(/[\r\n]+/g, '\n').split("\n")
+      @model.set "content", "<p>" + lines.join("</p><p>") + "</p>"
+
 
 
   class List.ReviewsListView extends App.Views.CollectionView

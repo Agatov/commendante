@@ -8,4 +8,8 @@ module ApplicationHelper
       when 5 then return "five-stars"
     end
   end
+
+  def decorate_text(str)
+    ("<p>" + str.split("\n").join("<p></p>") + "</p>").html_safe
+  end
 end

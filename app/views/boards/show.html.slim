@@ -81,4 +81,4 @@
           - stars_class = nil
         .review-rate-stars (class = "#{stars_class}")
         .review-date = Russian::strftime(@review.created_at, "%d %B %H:%M") if @review
-    .review-body = @review.content.gsub("\n", "<br />").html_safe if @review
+    .review-body = decorate_text(@review.content) if @review

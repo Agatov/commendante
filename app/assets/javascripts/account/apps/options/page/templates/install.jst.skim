@@ -1,5 +1,11 @@
 .title Установка
-.code-widget
+textarea.code-widget (disabled)
+  | 
+    <!-- Commendate.ru widget -->
+    <script type="text/javascript"> 
+  = @widget_code
+  | </script>
+
 
 .notice
   p

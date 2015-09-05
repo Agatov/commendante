@@ -10,6 +10,7 @@
   width: 100%
   height: 100%
   background: rgba(0, 0, 0, 0.7)
+  cursor: pointer
 
 .cmdt-close-overlay-icon
   z-index: 9998
@@ -66,7 +67,7 @@
   height: 100%
 
 
-.cmdt-widget-button
+//.cmdt-widget-button
   position: fixed
   top: 50%
   left: 0px
@@ -80,6 +81,32 @@
   line-height: 50px
   text-align: center
   cursor: pointer
+
+.cmdt-widget-button
+  position: fixed
+  bottom: 50px
+  left: 20px
+  width: 112px
+  height: 100px
+  background: asset_url("widget/widget_button.png") no-repeat
+  background-size: 112px 100px
+  text-align: center
+  box-sizing: border-box
+  padding-top: 10px
+  font-family: "OpenSans-Regular"
+  font-size: 14px
+  line-height: 19px
+  color: #fff
+  cursor: pointer
+
+  &:hover
+    background: asset_url("widget/widget_button_blue.png") no-repeat
+    background-size: 112px 100px
+
+  .cmdt-button-reviews-count
+    font-family: "OpenSans-Semibold"
+    font-size: 18px
+    line-height: 24px
 
 .cmdt-clearfix
   &:after
@@ -254,4 +281,10 @@
     font-size: 14px
     color: #555555
     line-height: 22px
+
+    p
+      margin-bottom: 15px
+
+      &:last-child
+        margin-bottom: 0px
 

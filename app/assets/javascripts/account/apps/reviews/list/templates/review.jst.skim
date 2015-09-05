@@ -28,7 +28,7 @@
         .review-rate-stars.five-stars
     
     .review-date = @date
-.review-body = @content
+.review-body == @content
 
 
 - switch @moderated

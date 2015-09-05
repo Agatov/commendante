@@ -1,3 +1,29 @@
 json.widget do
   json.partial! 'account/widgets/widget', widget: @widget
 end
+
+raw_code = '
+var Commendante = {};
+Commendante.WidgetUID = "***";
+
+(function(d, w) {
+  var h = d.getElementsByTagName("head")[0],
+      script = d.createElement("script"),
+      css = d.createElement("link");
+
+
+  script.async = true;
+  script.type = "application/javascript";
+  script.src = "http://localhost:3000/assets/widget.js";
+
+  css.rel = "stylesheet";
+  css.type = "text/css";
+  css.href = "http://localhost:3000/assets/widget.css";
+
+  h.appendChild(script);
+  h.appendChild(css);
+
+})(document, window)
+'
+
+json.widget_code Uglifier.new.compile(raw_code).gsub("***", @widget.uid)

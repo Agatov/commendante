@@ -23,6 +23,9 @@
     App.reqres.setHandler "get:widget", ->
       App.widget
 
+    App.reqres.setHandler "get:widget:code", ->
+      options.widget_code
+
   App.addRegions
     sidebarRegion: '#sidebar-region'
     mainRegion: '#main-region'
