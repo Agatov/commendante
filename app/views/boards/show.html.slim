@@ -1,0 +1,84 @@
+- form_widget_class = @review.nil? ? nil : "hidden"
+.form-widget (class = "#{form_widget_class}")
+  .review-header
+    .reviewer-avatar
+      = image_tag @reviewer.avatar_url(:preview)
+    .reviewer-details
+      .reviewer-name = @reviewer.name
+      .reviewer-url = @reviewer.url
+
+  .title = "Новый отзыв о компании «#{@widget.company_name}»"
+
+  textarea (name = "content" placeholder = "Начните писать ваш отзыв здесь...")
+    = @review.content if @review
+  .widget-footer
+
+
+    - stars_rate = @review.nil? ? nil: @review.rate
+    .stars (rate = "#{stars_rate}")
+      - for i in 1..5 do
+        - star_class = (!stars_rate.nil? and i <= stars_rate) ? "yellow" : nil
+        .star (rate = "#{i.to_s}" class = "#{star_class}")
+    .button#save-review-button Отправить отзыв
+
+  input (type = "hidden" name = "widget" value = "#{session[:widget]}")
+
+  - if @review
+    - request_method = "put"
+  - else
+    - request_method = "post"
+
+  input (type = "hidden" name = "request_type" value = "#{request_method}")
+
+
+- result_widget_class = @review.nil? ? "hidden" : nil
+.result-widget (class = "#{result_widget_class}")
+
+  - if @review and @review.confirmed?
+    .widget-header.confirmed
+      strong Ваш отзыв одобрен
+      p
+        |
+          Ваш отзыв прошел модерацию и будет показываться
+          на сайте компании.
+
+      .button.ghost#change-review-button Изменить текст отзыва и оценку
+
+  - if @review and @review.rejected?
+    .widget-header.rejected
+      strong Ваш отзыв отклонен
+      p
+        |
+          По каким-то причинам, модераторы сочли ваш отзыв
+          неподходящим для публикации на сайте компании
+
+      .button.ghost#change-review-button Изменить текст отзыва и оценку
+
+  - if @review.nil? or @review.unmoderated?
+    .widget-header
+      strong Спасибо за отзыв!
+      p
+        |
+          Ваш отзыв будет опубликован на сайте
+          abardacha.ru после прохождения модерации.
+
+      .button.ghost#change-review-button Изменить текст отзыва и оценку
+
+  .review
+    .review-header
+      .reviewer-avatar
+        - if @review
+          = image_tag(@review.reviewer.avatar_url(:preview)) 
+        - else
+          img
+      .reviewer-details
+        .reviewer-name = @review.reviewer.name if @review
+        .reviewer-url = @review.reviewer.url if @review
+      .review-header-right
+        - if @review
+          - stars_class = stars_class_by_rate(@review.rate)
+        - else
+          - stars_class = nil
+        .review-rate-stars (class = "#{stars_class}")
+        .review-date = Russian::strftime(@review.created_at, "%d %B %H:%M") if @review
+    .review-body = @review.content.gsub("\n", "<br />").html_safe if @review

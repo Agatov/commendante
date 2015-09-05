@@ -1,0 +1,77 @@
+.review
+  padding: 30px 20px
+
+.review-header
+  @extend .clearfix
+
+  .reviewer-avatar
+    float: left
+    width: 50px
+    height: 50px
+    background: #333
+    border-radius: 50px
+    background: #333
+
+    img
+      width: 50px
+      height: 50px
+      border-radius: 50px
+
+  .reviewer-details
+    float: left
+    margin-left: 20px
+    padding: 5px 0
+
+    .reviewer-name
+      font-size: 16px
+      color: #53535B
+      font-family: "OpenSans-Regular"
+
+    .reviewer-url
+      margin-top: 10px
+      font-family: "OpenSans-Light"
+      font-size: 14px
+      color: #3DB8DB
+
+    
+  .review-header-right
+    float: right
+
+    .review-rate-stars
+      @extend .clearfix
+      float: right
+      width: 84px
+      height: 14px
+
+      &.one-star
+        background: asset_url("widget/stars/one_small_star.png") no-repeat
+        background-size: 84px 14px
+      
+      &.two-stars
+        background: asset_url("widget/stars/two_small_stars.png") no-repeat
+        background-size: 84px 14px
+
+      &.three-stars
+        background: asset_url("widget/stars/three_small_stars.png") no-repeat
+        background-size: 84px 14px
+
+      &.four-stars
+        background: asset_url("widget/stars/four_small_stars.png") no-repeat
+        background-size: 84px 14px
+
+      &.five-stars
+        background: asset_url("widget/stars/five_small_stars.png") no-repeat
+        background-size: 84px 14px
+
+    .review-date
+      margin-top: 30px
+      font-family: "OpenSans-Light"
+      font-size: 14px
+      color: #72798B
+
+.review-body
+  margin-top: 20px
+  font-family: "OpenSans-Regular"
+  font-size: 15px
+  color: #72798B
+  line-height: 22px

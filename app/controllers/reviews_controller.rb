@@ -1,29 +1,41 @@
 class ReviewsController < ApplicationController
 
-  def index
-    @site = Site.find_by_url params[:site_url]
-    @reviews = @site.reviews.where(moderated: true).order("id desc")
-    session[:site_id] = @site.id
-    session[:site_url] = @site.url
-
-    if session[:user_id]
-      @user = User.find session[:user_id]
-    end
-    
+  def show
   end
 
   def create
-    @review = Site.find(session[:site_id]).reviews.build review_params
-    @review.user_id = session[:user_id]
-    @review.save
-    render json: {status: :success}
+    @widget = Widget.find_by_uid(session[:widget])
+    return render json: {status: :error, msg: "widget not found"} unless @widget
 
+    @review = @widget.reviews.build review_params
+    @review.reviewer_id = session[:reviewer_id]
+    
+
+    if @review.save
+      render :show
+    else
+      render json: {status: :error}
+    end
+  end
+
+  def update
+    @widget = Widget.find_by_uid(session[:widget])
+    return render json: {status: :error, msg: "widget not found"} unless @widget
+
+    @reviewer = Reviewer.find session[:reviewer_id]
+    @review = Review.find_by_widget_id_and_reviewer_id @widget.id, @reviewer.id
+
+    if @review.update_attributes review_params
+      render :show
+    else
+      render json: {status: :error}
+    end
   end
 
   private
 
   def review_params
-    params.require(:review).permit(:title, :content, :positive)
+    params.require(:review).permit(:content, :rate)
   end
 
 end

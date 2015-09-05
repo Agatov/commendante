@@ -4,6 +4,10 @@ class Widget < ActiveRecord::Base
 
   before_create :generate_uid
 
+  def board_url
+    "board/#{self.uid}"
+  end
+
 
   protected
 
