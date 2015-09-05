@@ -1,6 +1,5 @@
-// Гуглить asset_host
-
-@import fonts
+@import common/fonts
+@import widget/perfect-scrollbar
 
 .cmdt-overlay
   display: none
@@ -13,7 +12,6 @@
   background: rgba(0, 0, 0, 0.7)
 
 .cmdt-close-overlay-icon
-  display: none
   z-index: 9998
   position: fixed
   top: 30px
@@ -30,11 +28,42 @@
   position: fixed
   top: 0px
   left: 0px
-  width: 520px
+  width: 620px
   height: 100%
   background: #fff
-  overflow-y: scroll
 
+  &.cmdt-widget-panel-empty
+    background: #7F64B5
+
+    .cmdt-widget-panel-empty-box
+      width: 100%
+      height: 130px
+      position: absolute
+      left: 0px
+      top: 50%
+      margin-top: -65px
+
+    .cmdt-widget-panel-empty-title
+      width: 370px
+      margin: 0px auto
+      margin-bottom: 30px
+
+      font-family: "OpenSans-Light"
+      font-size: 17px
+      line-height: 27px
+      color: #fff
+      text-align: center
+      
+
+
+    .cmdt-button
+      width: 220px
+
+
+.cmdt-widget-panel-container
+  position: relative
+  width: 100%
+  height: 100%
 
 
 .cmdt-widget-button
@@ -63,43 +92,45 @@
 
 .cmdt-widget-top
   width: 100%
-  background: #56C7D9
+  background: #7F64B5
   padding: 30px 0
 
-  .cmdt-button
-    display: block
-    margin: 0px auto
+.cmdt-button
+  display: block
+  margin: 0px auto
 
-    width: 240px
-    height: 55px
+  width: 200px
+  height: 40px
 
-    font-family: "HelveticaNeue-Regular"
-    font-size: 18px
-    color: #fff
-    text-decoration: none
+  font-family: "OpenSans-Regular"
+  font-size: 15px
+  color: #fff
+  text-decoration: none
 
-    border: 2px solid #fff
-    border-radius: 50px
+  border: 1px solid rgba(255, 255, 255, 0.4)
+  border-radius: 4px
 
-    text-align: center
-    line-height: 55px
+  text-align: center
+  line-height: 39px
 
-    cursor: pointer
+  cursor: pointer
+
+  &:hover
+    background: #fff
+    color: #7F64B5
 
 .cmdt-reviews-header
-  @extend .cmdt-clearfix
   padding: 25px 20px
-  font-family: "HelveticaNeue-Regular"
+  background: #F6FBFC
+  font-family: "OpenSans-Regular"
   font-size: 18px
-  color: #999999
-
-  .cmdt-reviews-total-count
-    float: left
-
+  color: #53535B
+  text-align: center
 
   .cmdt-reviews-total-rate
-    float: right
-    width: 150px
+    margin: 0px auto
+    margin-bottom: 10px
+    width: 102px
     height: 18px
 
     .cmdt-reviews-total-rate-stars
@@ -110,7 +141,7 @@
       &.one-star
         background: asset_url("widget/stars/one_big_star.png") no-repeat
         background-size: 102px 18px
-
+      
       &.two-stars
         background: asset_url("widget/stars/two_big_stars.png") no-repeat
         background-size: 102px 18px
@@ -127,62 +158,65 @@
         background: asset_url("widget/stars/five_big_stars.png") no-repeat
         background-size: 102px 18px
 
+  .cmdt-reviews-total-count
+    font-family: "OpenSans-Light"
+    font-size: 15px
+    margin-bottom: 5px
 
-    .cmdt-reviews-total-rate-value
-      float: right
+  .cmdt-reviews-company-name
+    font-family: "OpenSans-Regular"
+    font-size: 18px
+    color: #53535B
 
 .cmdt-reviews
-  font-family: "HelveticaNeue-Light"
-  color: #303646
 
 .cmdt-review
   width: 100%
   border-top: 1px solid #eee
-  border-radius: 4px
   box-sizing: border-box
-  padding: 25px 20px
+  padding: 20px
 
   .cmdt-review-header
     @extend .cmdt-clearfix
-
+    
 
     .cmdt-review-author-avatar
       float: left
-      width: 50px
-      height: 50px
+      width: 40px
+      height: 40px
       background: #333
       border-radius: 50px
       background: #333
 
       img
-        width: 50px
-        height: 50px
+        width: 40px
+        height: 40px
         border-radius: 50px
 
     .cmdt-review-author-details
       float: left
       margin-left: 20px
-      padding: 5px 0
 
       .cmdt-review-author-name
-        font-size: 16px
+        font-size: 15px
         color: #111111
-        font-family: "HelveticaNeue-Regular"
+        font-family: "OpenSans-Regular"
 
       .cmdt-review-author-url
-        margin-top: 10px
+        margin-top: 1px
 
         a
-          font-family: "HelveticaNeue-Light"
+          font-family: "OpenSans-Light"
           font-size: 14px
           color: #56C7D9
           text-decoration: none
 
-
+      
     .cmdt-review-right
       float: right
 
       .cmdt-review-rate-stars
+        margin-top: 2px
         @extend .cmdt-clearfix
         float: right
         width: 84px
@@ -191,7 +225,7 @@
         &.one-star
           background: asset_url("widget/stars/one_small_star.png") no-repeat
           background-size: 84px 14px
-
+        
         &.two-stars
           background: asset_url("widget/stars/two_small_stars.png") no-repeat
           background-size: 84px 14px
@@ -209,15 +243,15 @@
           background-size: 84px 14px
 
       .cmdt-review-date
-        margin-top: 30px
-        font-family: "HelveticaNeue-Light"
+        margin-top: 20px
+        font-family: "OpenSans-Light"
         font-size: 14px
         color: #999999
 
   .cmdt-review-body
     margin-top: 20px
-    font-family: "HelveticaNeue-Regular"
-    font-size: 15px
+    font-family: "OpenSans-Regular"
+    font-size: 14px
     color: #555555
     line-height: 22px
 
