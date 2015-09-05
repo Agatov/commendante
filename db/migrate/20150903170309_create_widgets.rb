@@ -5,8 +5,6 @@ class CreateWidgets < ActiveRecord::Migration
       t.string :company_name
       t.string :site_url
       t.string :email
-      t.integer :reviews_count
-      t.float :average_rate
 
       t.timestamps null: false
     end

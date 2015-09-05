@@ -3,12 +3,13 @@ class BoardsController < ApplicationController
   layout 'board'
 
   def show
-    return redirect_to root_path unless params[:widget]
+    return render :widget_not_found unless params[:widget]
     session[:widget] = params[:widget]
-    return redirect_to login_board_path unless session[:reviewer_id]
-
     @widget = Widget.find_by_uid session[:widget]
     return render :widget_not_found if @widget.nil?
+
+    
+    return render :login unless session[:reviewer_id]
 
     @reviewer = Reviewer.find session[:reviewer_id]
     @review = Review.find_by_widget_id_and_reviewer_id @widget.id, @reviewer.id

@@ -8,6 +8,26 @@ class Widget < ActiveRecord::Base
     "board/#{self.uid}"
   end
 
+  def reviews_count
+    self.reviews.count
+  end
+
+  def new_reviews_count
+    self.reviews.unmoderated.count
+  end
+
+  def confirmed_reviews_count
+    self.reviews.confirmed.count
+  end
+
+  def rejected_reviews_count
+    self.reviews.rejected.count
+  end
+
+  def average_rate
+    self.reviews.confirmed.average(:rate)
+  end
+
 
   protected
 

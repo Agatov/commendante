@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/board/:widget', to: "boards#show", via: :get
+  match '/api/reviews/:widget', to: "api#reviews", via: :get
 
   get "/sites/:site_url", to: "reviews#index", :constraints => { :site_url => /[^\/]+/ }
 

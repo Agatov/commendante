@@ -3,11 +3,11 @@ class ApiController < ApplicationController
   before_action :cors_set_access_control_headers
 
   def reviews
-    @site = Site.find_by_url params[:url]
-    unless @site
+    @widget = Widget.find_by_uid params[:widget]
+    unless @widget
       return render json: {status: :error, message: "site with url #{params[:url]} was not found"}
     end
-    @reviews = @site.reviews.where(moderated: true).order("id desc")
+    @reviews = @widget.reviews.where(moderated: true).order("id desc")
   end
 
   def cors_set_access_control_headers
