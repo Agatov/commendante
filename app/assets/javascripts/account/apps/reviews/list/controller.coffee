@@ -3,7 +3,7 @@
   List.Controller =
 
     show: (type = null) ->
-      layoutView = @getLayoutView()
+      layoutView = @getLayoutView type
       App.mainRegion.show layoutView
 
       App.request "entities:reviews", type, (reviews) =>
@@ -12,8 +12,9 @@
 
 
 
-    getLayoutView: ->
+    getLayoutView: (type) ->
       layoutView = new List.LayoutView
+        model: (new Backbone.Model({type: type}))
 
       layoutView
 

@@ -19,8 +19,14 @@
       @model.set "content", "<p>" + lines.join("</p><p>") + "</p>"
 
 
+  class List.EmptyView extends App.Views.ItemView
+    template: "reviews/list/templates/empty"
+    className: "empty-view"
+
+
 
   class List.ReviewsListView extends App.Views.CollectionView
     className: "reviews"
     childView: List.ReviewView
     childViewEventPrefix: "list"
+    emptyView: List.EmptyView

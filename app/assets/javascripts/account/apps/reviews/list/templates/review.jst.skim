@@ -10,6 +10,7 @@
 
 .review-header
   .review-author-avatar
+    img (src = "#{@reviewer_avatar}")
   .review-author-details
     .review-author-name = @reviewer_name
     .review-author-url

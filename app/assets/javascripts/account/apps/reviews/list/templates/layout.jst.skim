@@ -1,4 +1,13 @@
 .topbar
-  .wrapper Список отзывов ололо
+  .wrapper
+    - switch @type
+      - when "new"
+        | Новые отзывы
+      - when "confirmed"
+        | Одобренные отзывы
+      - when "rejected"
+        | Отклоненные отзывы
+      - else 
+        | Все отзывы
 
 .wrapper.reviews-region
