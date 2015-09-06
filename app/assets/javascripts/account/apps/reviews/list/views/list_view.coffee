@@ -12,7 +12,6 @@
 
     onBeforeRender: ->
       @decorateContent()
-      console.log @model.get("content")
 
     decorateContent: ->
       lines = @model.get("content").replace(/[\r\n]+/g, '\n').split("\n")
