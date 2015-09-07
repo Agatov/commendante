@@ -1,7 +1,7 @@
 @AccountApp.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
   class Entities.User extends Entities.Model
-    url: "/account/users"
+    urlRoot: "/account/users"
 
     defaults: 
       role: "moderator"
@@ -28,6 +28,17 @@
     getNewUser: ->
       new Entities.User
 
+    getUser: (id, cb) ->
+      users = App.request 'entities:users:loaded'
+      if users
+        user =  users.get(id)
+        cb(user)
+      else
+        user = new Entities.User({id: id})
+        user.fetch
+          success: ->
+            cb(user)
+
     getUsers: (cb) ->
       users = new Entities.UsersCollection
       users.fetch
@@ -39,8 +50,26 @@
 
       users
 
+    resendInvite: (user, cb) ->
+      request = $.ajax(
+        url: "/account/users/#{user.get('id')}/resend_invite"
+        method: 'put'
+      )
+
+      request.done (msg) ->
+        cb() if cb
+
+
   App.reqres.setHandler "entities:users", (cb) ->
     API.getUsers cb
 
+  App.reqres.setHandler "entities:user", (id, cb) ->
+    API.getUser id, cb
+
   App.reqres.setHandler "entities:user:new", ->
     API.getNewUser()
+
+  App.reqres.setHandler "entities:user:resend:invite", (user, cb) ->
+    API.resendInvite user, cb
+
+  

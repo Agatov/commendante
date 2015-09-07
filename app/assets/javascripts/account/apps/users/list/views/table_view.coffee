@@ -7,6 +7,9 @@
     onRender: ->
       $(@el).addClass("inactive") unless @model.get("active")
 
+    events:
+      "click": -> @trigger "user:click", @model
+
 
   class List.TableView extends App.Views.CompositeView
     template: "users/list/templates/table"

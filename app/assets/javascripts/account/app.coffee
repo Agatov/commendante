@@ -31,6 +31,7 @@
     mainRegion: '#main-region'
     modalRegion: '#modal-region'
     modalOverlayRegion: '#modal-overlay-region'
+    alertRegion: '#alert-region'
 
   App.addInitializer ->
     App.module("SidebarApp").start()

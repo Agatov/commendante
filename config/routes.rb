@@ -31,7 +31,9 @@ Rails.application.routes.draw do
     end
     resources :reviews
     resource :widget, only: [:show, :update]
-    resources :users, only: [:index, :show, :create, :update, :destroy]
+    resources :users, only: [:index, :show, :create, :update, :destroy] do
+      put :resend_invite, on: :member
+    end
     resource :profile, only: [:show, :update]
   end
 

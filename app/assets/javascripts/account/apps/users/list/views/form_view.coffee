@@ -9,7 +9,6 @@
       "select[name=role]": "role"
 
     events:
-      "click": -> @trigger "user:click", @model
       "click .js-add-user": "handleAddUserButtonClick"
 
     initialize: ->

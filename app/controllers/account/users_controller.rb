@@ -37,6 +37,16 @@ class Account::UsersController < AccountsController
     render :show
   end
 
+  def resend_invite
+    @user = User.find params[:id]
+    password = @user.generate_password
+    if @user.save
+      render :show
+    else
+      render json: {status: :error}
+    end
+  end
+
   private 
 
   def user_params

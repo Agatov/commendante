@@ -3,6 +3,7 @@
   class UsersApp.Router extends Marionette.AppRouter
     appRoutes:
       'users(/)': 'showUsers'
+      'users/:user_id/edit': 'showUserForm'
 
   App.addInitializer ->
     new UsersApp.Router
@@ -35,4 +36,4 @@
     API.save user, cb
 
   App.vent.on "delete:user", (user, cb) ->
-    API.destroy user, cb
+    API.delete user, cb

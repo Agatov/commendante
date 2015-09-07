@@ -1,0 +1,7 @@
+.modal-header Подтвердите действие
+.modal-content 
+  = @content
+.modal-footer
+  .buttons
+    .button.gray.ghost.cancel Отмена
+    .button.blue.confirm Удалить

@@ -36,4 +36,7 @@
       view = new List.TableView
         collection: users
 
+      view.on "list:user:click", (iv, user) ->
+        App.vent.trigger "show:user:form", user.get('id')
+
       view

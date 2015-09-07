@@ -1,0 +1,38 @@
+.alert
+  position: fixed
+  top: 20px
+  right: 20px
+
+  width: 350px
+  height: 40px
+  line-height: 40px
+  padding: 10px 0
+  background: #7F64B5
+  color: #fff
+  text-align: center
+  border-radius: 4px
+  
+
+  .content
+    display: inline-block
+    height: 40px
+    font-size: 15px
+    font-family: "OpenSans-Regular"
+
+
+  .icon
+    display: inline-block
+    margin-right: 20px
+    width: 40px
+    height: 40px
+
+    &:after
+      content: "\a0\a0"
+
+    &.save-success
+      background: asset-url("icon_save_success_40x40.png") no-repeat
+      background-size: 40px 40px
+
+    &.delete-success
+      background: asset-url("icon_delete_success_40x40.png") no-repeat
+      background-size: 40px 40px

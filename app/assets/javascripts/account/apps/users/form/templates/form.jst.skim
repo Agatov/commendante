@@ -1,0 +1,34 @@
+.option-input-block
+  label 
+    | Имя 
+    span.success 
+  input (type = "text" name = "name" value = "#{@name}" placeholder = "Безымянный друг" autocomplete = "off")
+
+.option-input-block
+  label 
+    | Адрес электронной почты 
+    span.success 
+
+  .value
+    = @email
+    - if @email_confirmed
+      span.status.green Подтвержден
+    - else
+      span.status.red Не подтвержден
+
+  - unless @email_confirmed
+    .button.gray.ghost#js-send-one-more-invite Отправить приглашение еще раз
+    
+- unless @role == "owner"
+  .option-input-block
+    label 
+      | Роль 
+      span.success 
+
+    select (name = "role" value = "#{@role}")
+      option (value = "moderator") Модератор
+      option (value = "admin") Администратор
+
+    .hint
+      |
+        Администраторы имеют доступ во все разделы аккаунта виджета, а модераторы могут только модерировать отзывы и делать рассылки.

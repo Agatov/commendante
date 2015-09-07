@@ -1,0 +1,9 @@
+.topbar 
+  .wrapper Редактирование пользователя
+
+.wrapper
+  .button.ghost.blue.single#js-go-back Вернуть к управлению пользователями
+  .form-region
+
+  - unless @role == "owner"
+    .button.ghost.red.single#js-delete-user Удалить пользователя
