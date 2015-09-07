@@ -10,18 +10,20 @@
 
     events:
       "click .js-add-user": "handleAddUserButtonClick"
+    
 
-    initialize: ->
+    onRender: ->
+      @stickit()
+      @initValidation()
+
+    handleAddUserButtonClick: ->
+      if @model.isValid("email")
+        @trigger "valid:form:submit", @model, @
+
+
+    initValidation: ->
       Backbone.Validation.bind @,
         valid: (view, attr) ->
           $(view.el).find("[name=#{attr}]").removeClass("invalid")
         invalid: (view, attr, error) ->
           $(view.el).find("[name=#{attr}]").addClass("invalid")
-
-
-    onRender: ->
-      @stickit()
-
-    handleAddUserButtonClick: ->
-      if @model.isValid("email")
-        @trigger "valid:form:submit", @model, @
