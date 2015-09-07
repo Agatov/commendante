@@ -43,6 +43,10 @@ input
       opacity: 0
       transition: opacity 0.3s ease
 
+  &.invalid
+    border: 1px solid #FB666E
+
+
 input[disabled]
   background: #ddd
 
@@ -60,6 +64,10 @@ select
   border-radius: 4px
   outline: none
 
+  &.invalid
+    border: 1px solid #FB666E
+
+
 textarea
   width: 320px
   min-height: 240px
@@ -73,6 +81,10 @@ textarea
   outline: none
   resize: none
   @include transition(all 0.3s ease-in-out)
+
+  &.invalid
+    border: 1px solid #FB666E
+
 
   @include placeholder
     color: #7C8A95

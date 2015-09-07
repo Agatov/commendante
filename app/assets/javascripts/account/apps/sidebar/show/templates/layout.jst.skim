@@ -31,7 +31,7 @@
     h3.sidebar-navigation-section-title Виджет
     ul.sidebar-navigation-section-list
       li (trigger = "show:options") Установка и опции
-      li Модераторы
+      li (trigger = "show:users") Модераторы
       li Оплата
 
   .sidebar-navigation-section

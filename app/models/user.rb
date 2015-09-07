@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   belongs_to :account
-
-  validates :name, presence: true
+  
   validates :email, uniqueness: {message: I18n.t('auth.user_email_already_exists_error')}, presence: true, email: true
   validates :password, length: {minimum: 6}, presence: true
 

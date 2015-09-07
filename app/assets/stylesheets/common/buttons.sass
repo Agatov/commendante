@@ -2,7 +2,7 @@
   display: inline-block
   padding: 0 15px
   height: 40px
-  line-height: 38px
+  line-height: 36px
   text-align: center
   font-size: 15px
   cursor: pointer
@@ -10,16 +10,57 @@
   text-decoration: none
   transition: .2s all
   box-sizing: border-box
+  border-radius: 4px
+
+  &.single
+    margin: 30px 0
 
   &.green
+    border: 1px solid #5AC269
     background: #5AC269
     color: #fff
 
   &.red
+    border: 1px solid #FB666E
     background: #FB666E
     color: #fff
 
+    &.ghost
+      background: transparent
+      color: #FB666E
+
+      &:hover
+        background: #FB666E
+        color: #fff
+
+  &.blue
+    border: 1px solid #3DB8DB
+    background: #3DB8DB
+    color: #fff
+
+    &.ghost
+      background: transparent
+      color: #3DB8DB
+
+      &:hover
+        background: #3DB8DB
+        color: #fff
+
   &.dark-gray
+    border: 1px solid #ADC1C8
     background: #ADC1C8
     color: #fff
+
+  &.gray
+    background: #DDDDDD
+    color: #72798B
+
+    &.ghost
+      border: 1px solid #ddd
+      background: #fff
+
+      &:hover
+        border: 1px solid #72798B
+        background: #72798B
+        color: #fff
 

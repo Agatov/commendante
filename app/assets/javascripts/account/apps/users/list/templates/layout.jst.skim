@@ -1,0 +1,6 @@
+.topbar 
+  .wrapper Управление пользователями
+
+.wrapper
+  .table-region
+  .form-region

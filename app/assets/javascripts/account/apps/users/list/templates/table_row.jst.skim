@@ -1,0 +1,13 @@
+td.user
+  = @name if @name
+  = @email unless @name
+  - unless @active
+    em Приглашение отправлено
+td.role
+  - switch @role
+    - when "owner"
+      | Владелец аккаунта
+    - when "admin"
+      | Администратор
+    - when "moderator"
+      | Модератор

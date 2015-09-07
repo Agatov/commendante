@@ -3,12 +3,18 @@ class Account::UsersController < AccountsController
     @users = current_user.account.users.order("role, name asc")
   end
 
-  def show
+  def show 
+    @user = User.find params[:id]
+  end
+
+  def create
     @user = current_user.account.users.build user_params
+    @user.active = false
+    
     password = @user.generate_password
 
     if @user.save
-      UserMailer.user_invited_email(@user.email, password).deliver
+      #UserMailer.user_invited_email(@user.email, password).deliver
       render :show
     else
       render json: {status: :error}

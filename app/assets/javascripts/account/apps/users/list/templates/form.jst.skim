@@ -1,0 +1,9 @@
+label Добавить нового пользователя
+.inline-form
+  input.email (type = "text" name = "email" value = "#{@email}" placeholder = "Электронная почта" autocomplete = "off")
+  
+  select.role (name = "role" value = "#{@role}")
+    option (value = "moderator") Модератор
+    option (value = "admin") Администратор
+
+  .button.blue.js-add-user Добавить
