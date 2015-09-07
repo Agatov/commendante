@@ -3,6 +3,7 @@ class Widget < ActiveRecord::Base
   has_many :reviews
   has_one :email_template
   has_many :offers
+  has_many :mass_offer_tasks
 
   before_create :generate_uid
 

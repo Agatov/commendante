@@ -9,7 +9,7 @@
       "input[name=email]": "email"
 
     events:
-      "click .js-send-offer": "handleSendOfferButtonClick"
+      "click #js-send-offer": "handleSendOfferButtonClick"
 
 
     onRender: ->
@@ -18,7 +18,7 @@
     
 
     handleSendOfferButtonClick: ->
-      if @model.isValid("email")
+      if @model.isValid("emails")
         @trigger "valid:form:submit", @model, @
       
 

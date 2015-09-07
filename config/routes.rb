@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
     resource :email_template, only: [:show, :update]
     resources :offers, only: [:index, :show, :create, :destroy]
+    resources :mass_offer_tasks, only: [:index, :show, :create]
 
   end
 

@@ -1,0 +1,12 @@
+.option-input-block
+  label 
+    | Список электронных адресов через запятую
+    span.success 
+  textarea.full-length (name = "emails" placeholder = "email1@mail.ru, email2@mail.ru, email3@mail.ru")
+  .hint
+    | 
+      Нажав кнопку "Отправить", вы отправить письма с предложением оставить отзыв
+      на все емэйлы введенные выше. Заголовок и тело письма вы можете отредактировать
+      в разделе "Шаблон сообщения"
+
+  .button.blue.single#js-create-task Отправить 
