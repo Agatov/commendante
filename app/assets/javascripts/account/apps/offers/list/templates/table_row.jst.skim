@@ -1,0 +1,8 @@
+td = @date
+td 
+  - if @name
+    = @name 
+  - else
+    | не указано
+td = @email
+td Заглушка для статуса

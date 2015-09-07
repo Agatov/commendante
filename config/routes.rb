@@ -40,7 +40,7 @@ Rails.application.routes.draw do
     end
 
     resource :email_template, only: [:show, :update]
-    resource :offers, only: [:index, :show, :create, :destroy]
+    resources :offers, only: [:index, :show, :create, :destroy]
 
   end
 

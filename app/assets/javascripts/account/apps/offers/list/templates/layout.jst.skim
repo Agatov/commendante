@@ -1,0 +1,9 @@
+.topbar 
+  .wrapper Сообщения
+
+.wrapper
+  .form-region
+  
+  section
+    .title История сообщений
+    .table-region

@@ -20,7 +20,7 @@
       ]
 
   class Entities.UsersCollection extends Entities.Collection
-    model: Entities.Review
+    model: Entities.User
     url: "/account/users"
 
   API = 

@@ -4,7 +4,6 @@
 
     show: (user_id) ->
       App.request "entities:user", user_id, (user) =>
-        console.log user
         layoutView = @getLayoutView user
         formView = @getFormView user
 

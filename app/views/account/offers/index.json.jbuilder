@@ -1,0 +1,1 @@
+json.partial! 'account/offers/offer', collection: @offers, as: :offer

@@ -1,0 +1,7 @@
+thead
+  tr
+    th Дата
+    th Имя
+    th Email
+    th Статус
+tbody

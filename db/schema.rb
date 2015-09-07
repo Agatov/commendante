@@ -72,7 +72,7 @@ ActiveRecord::Schema.define(version: 20150907180742) do
     t.string   "name"
     t.string   "password"
     t.string   "salt"
-    t.integer  "role"
+    t.integer  "role",            default: 0
     t.datetime "created_at",                      null: false
     t.datetime "updated_at",                      null: false
     t.boolean  "active",          default: true
