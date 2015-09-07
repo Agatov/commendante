@@ -37,6 +37,6 @@
   .sidebar-navigation-section
     h3.sidebar-navigation-section-title Аккаунт
     ul.sidebar-navigation-section-list
-      li Сменить пароль
+      li (trigger = "show:profile") Настройки профиля
       li 
         a (href = "/sign_out") Выйти из системы

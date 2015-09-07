@@ -13,12 +13,12 @@ class Account::ProfilesController < AccountsController
     end
   end
 
-  def change_email
-
+  def send_email_confirmation
+    render json: {status: :ok}
   end
 
-  def change_password
-
+  def send_new_password
+    render json: {status: :ok}
   end
 
   private

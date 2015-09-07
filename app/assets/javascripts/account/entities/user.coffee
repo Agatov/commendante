@@ -59,6 +59,26 @@
       request.done (msg) ->
         cb() if cb
 
+    sendEmailConfirmation: (cb) ->
+      request = $.ajax(
+        url: "/account/profile/send_email_confirmation"
+        method: "put"
+      )
+
+      request.done (msg) ->
+        cb() if cb
+
+    sendNewPassword: (cb) ->
+      request = $.ajax(
+        url: "/account/profile/send_new_password"
+        method: "put"
+      )
+
+      request.done (msg) ->
+        cb() if cb
+
+
+
 
   App.reqres.setHandler "entities:users", (cb) ->
     API.getUsers cb
@@ -71,5 +91,16 @@
 
   App.reqres.setHandler "entities:user:resend:invite", (user, cb) ->
     API.resendInvite user, cb
+
+  App.reqres.setHandler "profile:send:email:confirmation", (cb) ->
+    API.sendEmailConfirmation cb
+
+  App.reqres.setHandler "profile:send:new:password", (cb) ->
+    API.sendNewPassword cb
+
+  App.reqres.setHandler "set:profile", (user) ->
+    new Entities.User(user)
+
+
 
   

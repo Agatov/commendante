@@ -1,0 +1,31 @@
+.option-input-block
+  label 
+    | Ваше имя 
+    span.success 
+  input (type = "text" name = "name" value = "#{@name}" placeholder = "Безымянный друг" autocomplete = "off")
+
+.option-input-block
+  label 
+    | Адрес электронной почты 
+
+  .value
+    = @email
+    - if @email_confirmed
+      span.status.green Подтвержден
+    - else
+      span.status.red Не подтвержден
+
+  - unless @email_confirmed
+    .button.gray.ghost#js-send-confirmation-email Подтвердить
+  
+
+.option-input-block
+  label 
+    | Сменить пароль 
+  
+  .hint
+    == "Мы отправим вам письмо с волшебной ссылкой на <strong>#{@email}</strong>"
+    br
+    | Эта ссылка поможет вам сменить пароль.
+
+  .button.gray.ghost#js-send-change-passoword-email Отправить письмо

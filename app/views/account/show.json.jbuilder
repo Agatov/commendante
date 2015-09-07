@@ -2,6 +2,10 @@ json.widget do
   json.partial! 'account/widgets/widget', widget: @widget
 end
 
+json.profile do
+  json.partial! 'account/users/user', user: @profile
+end
+
 raw_code = '
 var Commendante = {};
 Commendante.WidgetUID = "***";
@@ -27,3 +31,4 @@ Commendante.WidgetUID = "***";
 '
 
 json.widget_code Uglifier.new.compile(raw_code).gsub("***", @widget.uid)
+

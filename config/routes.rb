@@ -34,7 +34,10 @@ Rails.application.routes.draw do
     resources :users, only: [:index, :show, :create, :update, :destroy] do
       put :resend_invite, on: :member
     end
-    resource :profile, only: [:show, :update]
+    resource :profile, only: [:show, :update] do
+      put :send_email_confirmation, on: :member
+      put :send_new_password, on: :member
+    end
   end
 
   resources :sessions, only: [:new, :create]

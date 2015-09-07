@@ -15,6 +15,7 @@
 
   App.on "before:start", (options) ->
     @widget = App.request "set:widget", options.widget
+    @profile = App.request "set:profile", options.profile
 
 #    Raven.setUserContext({
 #        user_id: @profile.get("id")
@@ -25,6 +26,9 @@
 
     App.reqres.setHandler "get:widget:code", ->
       options.widget_code
+
+    App.reqres.setHandler "get:profile", ->
+      App.profile
 
   App.addRegions
     sidebarRegion: '#sidebar-region'

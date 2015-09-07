@@ -5,6 +5,7 @@ class AccountsController < ApplicationController
   layout "account"
 
   def show
+    @profile = current_user
     @widget = current_user.account.widget
     gon.jbuilder template: 'app/views/account/show.json'
     render "account/show"
