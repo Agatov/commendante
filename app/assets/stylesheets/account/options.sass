@@ -19,58 +19,29 @@
     padding: 25px 0
     border-bottom: 1px solid #ddd
 
-    label
-      display: block
-      font-family: "OpenSans-Regular"
-      font-size: 17px
-      color: #53535B
-      margin-bottom: 15px
-
-      &.update-success
-        span.success
-          display: inline
-
-      span.success
-        display: none
-        font-family: "OKIcon"
-        color: #5AC269
-        font-size: 16px
-
-    input
-      width: 320px
-      height: 40px
-      box-sizing: border-box
-      padding: 0px 10px
-      font-family: "OpenSans-Regular"
-      font-size: 16px
-      color: #53535B
-      border: 1px solid #ddd
-      border-radius: 4px
-      outline: none
-      @include transition(all 0.3s ease-in-out)
-
-      @include placeholder
-        color: #7C8A95
-        opacity: 1
-        transition: opacity 0.3s ease
-
-      &:hover
-        border: 1px solid #8AD4E9
-
-      &:focus
-        border: 1px solid #3DB8DB
-
-        @include placeholder
-          opacity: 0
-          transition: opacity 0.3s ease
-
-    input[disabled]
-      background: #ddd
-
     .hint
       margin-top: 15px
       font-family: "OpenSans-Regular"
       font-size: 15px
       line-height: 22px
       color: #8C8C95
+
+    .value
+      font-family: "OpenSans-Regular"
+      font-size: 15px
+      color: #53535B
+
+      span.status
+        padding-left: 20px
+        font-family: "OpenSans-Italic"
+        color: #9E9EA6
+
+        &.red
+          color: #FB666E
+
+        &.green
+          color: #5AC269
+
+    .button
+      margin-top: 20px
   

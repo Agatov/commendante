@@ -1,0 +1,34 @@
+table.users-table
+  margin-top: 30px
+  width: 620px
+  tbody
+    tr
+      @include transition(all 0.3s ease-in-out)
+      padding: 15px 0
+      border-bottom: 1px solid #eee
+      font-family: "OpenSans-Regular"
+      font-size: 16px
+      color: #53535B
+      cursor: pointer
+
+      &:hover
+        background: #F6FBFC
+        border-bottom: 1px solid #DFE3E9
+
+      &.inactive
+        color: #72798B
+
+      td
+        padding: 15px 0
+
+      td.user
+        text-align: left
+
+        em
+          font-family: "OpenSans-Italic"
+          color: #9E9EA6
+          font-size: 14px
+          padding-left: 10px
+      td.role
+        text-align: right
+
