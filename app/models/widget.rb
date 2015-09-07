@@ -1,6 +1,8 @@
 class Widget < ActiveRecord::Base
   has_one :account
   has_many :reviews
+  has_one :email_template
+  has_many :offers
 
   before_create :generate_uid
 

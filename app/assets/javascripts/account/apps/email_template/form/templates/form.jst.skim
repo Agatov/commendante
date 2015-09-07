@@ -1,0 +1,27 @@
+.option-input-block
+  label 
+    | Заголовок письма 
+    span.success 
+  input.full-length (type = "text" name = "subject" value = "#{@subject}" placeholder = "Заголовок письма тут" autocomplete = "off")
+  .hint
+    |
+      Вы можете подставить строки {name} и {company} в заголовок письма и они будут заменены
+      на имя клиента и название вашей компании при отправке.
+
+.option-input-block
+  label 
+    | Тело письма 
+    span.success 
+  textarea.full-length (name = "body" placeholder = "Тело письма")
+    = @body
+  .hint
+    |
+      Подсказка для автозамены:
+      <br />
+      {name} - имя клиента
+      <br />
+      {company} - название вашей компании
+      <br />
+      {site} - ссылка на ваш сайт
+      <br />
+      {url} - ссылка сразу на форму добавления отзыва

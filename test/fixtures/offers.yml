@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  widget_id: 1
+  name: MyString
+  email: MyString
+  phone: MyString
+  email_title: MyString
+  email_body: MyText
+  sms_text: MyText
+  email_status: 1
+  sms_status: 1
+
+two:
+  widget_id: 1
+  name: MyString
+  email: MyString
+  phone: MyString
+  email_title: MyString
+  email_body: MyText
+  sms_text: MyText
+  email_status: 1
+  sms_status: 1

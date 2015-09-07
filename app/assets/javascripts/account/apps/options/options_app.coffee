@@ -11,13 +11,13 @@
   API =
 
     showOptions: ->
-      App.navigate "options"
       OptionsApp.Page.Controller.show()
 
     save: (widget, cb) ->
       OptionsApp.Widget.Controller.save widget, cb
 
   App.vent.on "show:options", ->
+    App.navigate "options"
     API.showOptions()
 
   App.vent.on "save:widget", (widget, cb) ->

@@ -22,9 +22,9 @@
   .sidebar-navigation-section
     h3.sidebar-navigation-section-title FOLLOW UP
     ul.sidebar-navigation-section-list
-      li Новое сообщение
-      li Массовая рассылка
-      li Шаблоны сообщений
+      li (trigger = "show:offers") Новое сообщение
+      li (trigger = "show:mass:offers") Массовая рассылка
+      li (trigger = "show:email:template") Шаблоны сообщений
 
 
   .sidebar-navigation-section

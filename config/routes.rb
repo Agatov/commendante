@@ -38,6 +38,10 @@ Rails.application.routes.draw do
       put :send_email_confirmation, on: :member
       put :send_new_password, on: :member
     end
+
+    resource :email_template, only: [:show, :update]
+    resource :offers, only: [:index, :show, :create, :destroy]
+
   end
 
   resources :sessions, only: [:new, :create]

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150907135149) do
+ActiveRecord::Schema.define(version: 20150907180742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,28 @@ ActiveRecord::Schema.define(version: 20150907135149) do
     t.integer  "owner_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "email_templates", force: :cascade do |t|
+    t.integer  "widget_id"
+    t.string   "subject"
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.integer  "widget_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "phone"
+    t.string   "email_subject"
+    t.text     "email_body"
+    t.text     "sms_text"
+    t.integer  "email_status"
+    t.integer  "sms_status"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "reviewers", force: :cascade do |t|
