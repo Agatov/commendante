@@ -31,6 +31,8 @@ Rails.application.routes.draw do
     end
     resources :reviews
     resource :widget, only: [:show, :update]
+    resources :users, only: [:index, :show, :create, :update, :destroy]
+    resource :profile, only: [:show, :update]
   end
 
   resources :sessions, only: [:new, :create]
