@@ -32,7 +32,7 @@
     ul.sidebar-navigation-section-list
       li (trigger = "show:options") Установка и опции
       li (trigger = "show:users") Модераторы
-      li Оплата
+      //li Оплата
 
   .sidebar-navigation-section
     h3.sidebar-navigation-section-title Аккаунт
