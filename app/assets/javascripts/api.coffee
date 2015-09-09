@@ -1,66 +1,66 @@
 $ ->
 
-  Commendante.API.initialize Commendante.WidgetUID, (data) ->
-    Commendante.Data = data
+  GetReview.API.initialize GetReview.WidgetUID, (data) ->
+    GetReview.Data = data
 
-    cmdtWidgetButton = document.createElement("div")
-    $(cmdtWidgetButton).addClass "cmdt-widget-button"
-    $(cmdtWidgetButton).html "<div class = 'cmdt-button-reviews-count'>#{Commendante.Data.reviews_count}</div> #{Commendante.Data.reviews_count_text}"
+    grWidgetButton = document.createElement("div")
+    $(grWidgetButton).addClass "gr-widget-button"
+    $(grWidgetButton).html "<div class = 'gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
 
-    cmdtOverlay = document.createElement("div")
-    $(cmdtOverlay).addClass("cmdt-overlay")
+    grOverlay = document.createElement("div")
+    $(grOverlay).addClass("gr-overlay")
 
-    cmdtCloseOverlayButton = document.createElement("div")
-    $(cmdtCloseOverlayButton).addClass "cmdt-close-overlay-icon"
+    grCloseOverlayButton = document.createElement("div")
+    $(grCloseOverlayButton).addClass "gr-close-overlay-icon"
 
-    cmdtPanel = document.createElement("div")
-    $(cmdtPanel).addClass("cmdt-widget-panel")
+    grPanel = document.createElement("div")
+    $(grPanel).addClass("gr-widget-panel")
 
-    cmdtPanelContainer = document.createElement("div")
-    $(cmdtPanelContainer).addClass "cmdt-widget-panel-container"
+    grPanelContainer = document.createElement("div")
+    $(grPanelContainer).addClass "gr-widget-panel-container"
 
-    $("body").append cmdtOverlay
-    $("body").append cmdtCloseOverlayButton
-    $("body").append cmdtPanel
-    $("body").append cmdtWidgetButton
+    $("body").append grOverlay
+    $("body").append grCloseOverlayButton
+    $("body").append grPanel
+    $("body").append grWidgetButton
 
-    $(".cmdt-widget-panel").append cmdtPanelContainer
+    $(".gr-widget-panel").append grPanelContainer
 
-    if Commendante.Data.reviews_count == 0
-      $(".cmdt-widget-panel").addClass "cmdt-widget-panel-empty"
-      $(".cmdt-widget-panel-container").append(Commendante.API.renderEmpty(Commendante.Data))
+    if GetReview.Data.reviews_count == 0
+      $(".gr-widget-panel").addClass "gr-widget-panel-empty"
+      $(".gr-widget-panel-container").append(GetReview.API.renderEmpty(GetReview.Data))
     else
-      $(".cmdt-widget-panel-container").append(Commendante.API.renderReviewsTop(Commendante.Data))
-      $(".cmdt-widget-panel-container").append(Commendante.API.renderReviewsHeader(Commendante.Data))
-      $(".cmdt-widget-panel-container").perfectScrollbar()
+      $(".gr-widget-panel-container").append(GetReview.API.renderReviewsTop(GetReview.Data))
+      $(".gr-widget-panel-container").append(GetReview.API.renderReviewsHeader(GetReview.Data))
+      $(".gr-widget-panel-container").perfectScrollbar()
 
 
       reviewsRoot = document.createElement("div")
-      $(reviewsRoot).addClass "cmdt-reviews"
+      $(reviewsRoot).addClass "gr-reviews"
 
 
-      $(reviewsRoot).append(Commendante.API.renderReview(reviewData)) for reviewData in Commendante.Data.reviews
-      $(".cmdt-widget-panel-container").append reviewsRoot
+      $(reviewsRoot).append(GetReview.API.renderReview(reviewData)) for reviewData in GetReview.Data.reviews
+      $(".gr-widget-panel-container").append reviewsRoot
 
-    $(cmdtWidgetButton).on "click", -> Commendante.API.showPanel()
-    $(cmdtCloseOverlayButton).on "click", -> Commendante.API.hidePanel()
-    $(cmdtOverlay).on "click", -> Commendante.API.hidePanel()
+    $(grWidgetButton).on "click", -> GetReview.API.showPanel()
+    $(grCloseOverlayButton).on "click", -> GetReview.API.hidePanel()
+    $(grOverlay).on "click", -> GetReview.API.hidePanel()
 
-Commendante.API = 
+GetReview.API = 
 
   showPanel: ->
-    overlay = $(".cmdt-overlay")
+    overlay = $(".gr-overlay")
     overlay.css "opacity", 0
     overlay.show()
     overlay.animate({opacity: "0.8"}, 300)
 
-    closeIcon = $(".cmdt-close-overlay-icon")
+    closeIcon = $(".gr-close-overlay-icon")
     closeIcon.css "top", "-40px"
     closeIcon.css "opacity", "0"
     closeIcon.show()
     closeIcon.animate {top: "30px", opacity: 1}, 300
 
-    panel = $(".cmdt-widget-panel")
+    panel = $(".gr-widget-panel")
     panel.css("left", "-520px")
     panel.css "opacity", 0
     panel.show()
@@ -68,72 +68,72 @@ Commendante.API =
 
 
   hidePanel: ->
-    overlay = $(".cmdt-overlay")
+    overlay = $(".gr-overlay")
     overlay.animate {opacity: "0"}, 300, -> overlay.hide()
 
-    closeIcon = $(".cmdt-close-overlay-icon")
+    closeIcon = $(".gr-close-overlay-icon")
     closeIcon.animate {top: "-40px", opacity: 0}, 300, -> closeIcon.hide()
 
-    panel = $(".cmdt-widget-panel")
+    panel = $(".gr-widget-panel")
     panel.animate {"left": "-520px", "opacity": 0}, 300, -> panel.hide()
 
 
   renderEmpty: (data) ->
     """
-      <div class ="cmdt-widget-panel-empty-box">
-        <div class = "cmdt-widget-panel-empty-title">
+      <div class ="gr-widget-panel-empty-box">
+        <div class = "gr-widget-panel-empty-title">
           Увы, никто еще не написал ни одного отзыва,
           но вы можете быть первым!
         </div>
-        <a href = "#{data.review_board_url}"  class = "cmdt-button" target = "_blank">Написать первый отзыв</a>
+        <a href = "#{data.review_board_url}"  class = "gr-button" target = "_blank">Написать первый отзыв</a>
       </div>
     """
 
 
   renderReviewsTop: (data) ->
     """
-      <div class = "cmdt-widget-top">
-        <a href = "#{data.review_board_url}" class = "cmdt-button" target = "_blank"> Написать свой отзыв </a>
+      <div class = "gr-widget-top">
+        <a href = "#{data.review_board_url}" class = "gr-button" target = "_blank"> Написать свой отзыв </a>
       </div>
     """
 
   renderReviewsHeader: (data) ->
     """
-      <div class ="cmdt-reviews-header">
-        <div class = "cmdt-reviews-total-rate">
-          <div class = "cmdt-reviews-total-rate-stars #{Commendante.API.getStarsClassByRate(data.average_rate_rounded)}"></div>
+      <div class ="gr-reviews-header">
+        <div class = "gr-reviews-total-rate">
+          <div class = "gr-reviews-total-rate-stars #{GetReview.API.getStarsClassByRate(data.average_rate_rounded)}"></div>
         </div>
-        <div class = "cmdt-reviews-total-count">
+        <div class = "gr-reviews-total-count">
           #{data.reviews_count} #{data.reviews_count_text} о компании</div>
-        <div class = "cmdt-reviews-company-name">«#{data.company_name}»</div>
+        <div class = "gr-reviews-company-name">«#{data.company_name}»</div>
       </div>
     """
 
   renderReview: (data) ->
     """
-      <div class = "cmdt-review">
-        <div class = "cmdt-review-header">
-          <div class = "cmdt-review-author-avatar">
+      <div class = "gr-review">
+        <div class = "gr-review-header">
+          <div class = "gr-review-author-avatar">
             <img src = "#{data.avatar}">
           </div>
 
-          <div class = "cmdt-review-author-details">
-            <div class = "cmdt-review-author-name">#{data.username}</div>
-            <div class = "cmdt-review-author-url">
+          <div class = "gr-review-author-details">
+            <div class = "gr-review-author-name">#{data.username}</div>
+            <div class = "gr-review-author-url">
               <a href = "#{data.user_url}" target = "_blank">#{data.user_url}</a>
             </div>
 
           </div>
 
-          <div class = "cmdt-review-right">
-            <div class ="cmdt-review-rate-stars #{Commendante.API.getStarsClassByRate(data.rate)}"></div>
-            <div class = "cmdt-review-date">#{data.date}</div>
+          <div class = "gr-review-right">
+            <div class ="gr-review-rate-stars #{GetReview.API.getStarsClassByRate(data.rate)}"></div>
+            <div class = "gr-review-date">#{data.date}</div>
           </div>
 
         </div>
 
-        <div class = "cmdt-review-body">
-          #{Commendante.API.decorateText(data.content)}
+        <div class = "gr-review-body">
+          #{GetReview.API.decorateText(data.content)}
         </div>
       </div>
     """

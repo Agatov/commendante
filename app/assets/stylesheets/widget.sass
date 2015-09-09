@@ -1,7 +1,7 @@
 @import common/fonts
 @import widget/perfect-scrollbar
 
-.cmdt-overlay
+.gr-overlay
   display: none
   z-index: 9998
   position: fixed
@@ -12,7 +12,7 @@
   background: rgba(0, 0, 0, 0.7)
   cursor: pointer
 
-.cmdt-close-overlay-icon
+.gr-close-overlay-icon
   z-index: 9998
   position: fixed
   top: 30px
@@ -23,7 +23,7 @@
   background-size: 40px 40px
   cursor: pointer
 
-.cmdt-widget-panel
+.gr-widget-panel
   display: none
   z-index: 9999
   position: fixed
@@ -33,10 +33,10 @@
   height: 100%
   background: #fff
 
-  &.cmdt-widget-panel-empty
+  &.gr-widget-panel-empty
     background: #7F64B5
 
-    .cmdt-widget-panel-empty-box
+    .gr-widget-panel-empty-box
       width: 100%
       height: 130px
       position: absolute
@@ -44,7 +44,7 @@
       top: 50%
       margin-top: -65px
 
-    .cmdt-widget-panel-empty-title
+    .gr-widget-panel-empty-title
       width: 370px
       margin: 0px auto
       margin-bottom: 30px
@@ -57,17 +57,17 @@
       
 
 
-    .cmdt-button
+    .gr-button
       width: 220px
 
 
-.cmdt-widget-panel-container
+.gr-widget-panel-container
   position: relative
   width: 100%
   height: 100%
 
 
-//.cmdt-widget-button
+//.gr-widget-button
   position: fixed
   top: 50%
   left: 0px
@@ -82,7 +82,7 @@
   text-align: center
   cursor: pointer
 
-.cmdt-widget-button
+.gr-widget-button
   position: fixed
   bottom: 50px
   left: 20px
@@ -103,12 +103,12 @@
     background: asset_url("widget/widget_button_blue.png") no-repeat
     background-size: 112px 100px
 
-  .cmdt-button-reviews-count
+  .gr-button-reviews-count
     font-family: "OpenSans-Semibold"
     font-size: 18px
     line-height: 24px
 
-.cmdt-clearfix
+.gr-clearfix
   &:after
     clear: both
     content: "."
@@ -117,12 +117,12 @@
     clear: both
     visibility: hidden
 
-.cmdt-widget-top
+.gr-widget-top
   width: 100%
   background: #7F64B5
   padding: 30px 0
 
-.cmdt-button
+.gr-button
   display: block
   margin: 0px auto
 
@@ -146,7 +146,7 @@
     background: #fff
     color: #7F64B5
 
-.cmdt-reviews-header
+.gr-reviews-header
   padding: 25px 20px
   background: #F6FBFC
   font-family: "OpenSans-Regular"
@@ -154,13 +154,13 @@
   color: #53535B
   text-align: center
 
-  .cmdt-reviews-total-rate
+  .gr-reviews-total-rate
     margin: 0px auto
     margin-bottom: 10px
     width: 102px
     height: 18px
 
-    .cmdt-reviews-total-rate-stars
+    .gr-reviews-total-rate-stars
       float: left
       width: 102px
       height: 18px
@@ -185,29 +185,29 @@
         background: asset_url("widget/stars/five_big_stars.png") no-repeat
         background-size: 102px 18px
 
-  .cmdt-reviews-total-count
+  .gr-reviews-total-count
     font-family: "OpenSans-Light"
     font-size: 15px
     margin-bottom: 5px
 
-  .cmdt-reviews-company-name
+  .gr-reviews-company-name
     font-family: "OpenSans-Regular"
     font-size: 18px
     color: #53535B
 
-.cmdt-reviews
+.gr-reviews
 
-.cmdt-review
+.gr-review
   width: 100%
   border-top: 1px solid #eee
   box-sizing: border-box
   padding: 20px
 
-  .cmdt-review-header
-    @extend .cmdt-clearfix
+  .gr-review-header
+    @extend .gr-clearfix
     
 
-    .cmdt-review-author-avatar
+    .gr-review-author-avatar
       float: left
       width: 40px
       height: 40px
@@ -220,16 +220,16 @@
         height: 40px
         border-radius: 50px
 
-    .cmdt-review-author-details
+    .gr-review-author-details
       float: left
       margin-left: 20px
 
-      .cmdt-review-author-name
+      .gr-review-author-name
         font-size: 15px
         color: #111111
         font-family: "OpenSans-Regular"
 
-      .cmdt-review-author-url
+      .gr-review-author-url
         margin-top: 1px
 
         a
@@ -239,12 +239,12 @@
           text-decoration: none
 
       
-    .cmdt-review-right
+    .gr-review-right
       float: right
 
-      .cmdt-review-rate-stars
+      .gr-review-rate-stars
         margin-top: 2px
-        @extend .cmdt-clearfix
+        @extend .gr-clearfix
         float: right
         width: 84px
         height: 14px
@@ -269,13 +269,13 @@
           background: asset_url("widget/stars/five_small_stars.png") no-repeat
           background-size: 84px 14px
 
-      .cmdt-review-date
+      .gr-review-date
         margin-top: 20px
         font-family: "OpenSans-Light"
         font-size: 14px
         color: #999999
 
-  .cmdt-review-body
+  .gr-review-body
     margin-top: 20px
     font-family: "OpenSans-Regular"
     font-size: 14px

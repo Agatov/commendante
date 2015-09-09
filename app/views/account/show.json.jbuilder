@@ -7,8 +7,8 @@ json.profile do
 end
 
 raw_code = '
-var Commendante = {};
-Commendante.WidgetUID = "***";
+var GetReview = {};
+GetReview.WidgetUID = "***";
 
 (function(d, w) {
   var h = d.getElementsByTagName("head")[0],
