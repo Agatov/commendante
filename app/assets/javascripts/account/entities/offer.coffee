@@ -5,6 +5,10 @@
 
 
     validation:
+      name: 
+        required: true
+        msg: 'Это поле обязательно для заполнения'
+      
       email: [
         { 
           required: true

@@ -18,7 +18,7 @@
     
 
     handleSendOfferButtonClick: ->
-      if @model.isValid("emails")
+      if @model.isValid(["name", "email"])
         @trigger "valid:form:submit", @model, @
       
 

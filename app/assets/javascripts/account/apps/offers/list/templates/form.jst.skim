@@ -2,4 +2,4 @@ label Отправить новое предложение
 .inline-form
   input.email (type = "text" name = "name" placeholder = "Имя" autocomplete = "off")
   input.email (type = "text" name = "email" placeholder = "Электронная почта" autocomplete = "off")
-  .button.blue.js-send-offer Отправить
+  .button.blue#js-send-offer Отправить

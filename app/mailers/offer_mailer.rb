@@ -4,7 +4,7 @@ class OfferMailer < ActionMailer::Base
 
   def offer_created(offer)
     @offer = offer
-    mail(to: @offer.email, subject: @offer.subject)
+    mail(to: @offer.email, subject: @offer.email_subject)
   end
 
 end
