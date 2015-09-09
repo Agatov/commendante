@@ -5,10 +5,10 @@ table (bgcolor="#FFFFFF")
 
       p
         | 
-          Подтвердите свой электронный адрес, чтобы завершить настройку учетной записи email@email.com в Get Review. Это нетрудно, просто нажмите кнопку ниже
+          Подтвердите свой электронный адрес, чтобы завершить настройку учетной записи #{@user.email} в сервисе реальных отзывов <a href = "http://getreview.ru">Get Review</a>. Это нетрудно, просто нажмите кнопку ниже
 
       table
         tr
           td.padding
             p
-              a.btn-primary (href = "#") Подтвердить электронный адрес
+              a.btn-primary (href = "http://getreview.ru/confirm_email/#{@user.email}/#{@user.email_confirmation_token}") Подтвердить электронный адрес

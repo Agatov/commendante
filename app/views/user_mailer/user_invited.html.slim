@@ -5,16 +5,15 @@ table (bgcolor="#FFFFFF")
 
       p
         | 
-          Вам предоставлен доступ для входа в аккаунт на сайте getreview.ru. Для входа перейдите по ссылке <a href = "#">getreview.ru/sign_in</a> и введите ваши емэйл и пароль.
+          Вам предоставлен доступ для входа в аккаунт на сайте getreview.ru. Для входа нажмите на кнопку "войти в аккаунт" и введите присланные вам емэйл и пароль.
       p
         | 
-          Email: agatovs@gmail.com
+          Email: #{@user.email}
           <br />
-          Пароль: 1qwfq7
-
+          Пароль: #{@password}
 
       table
         tr
           td.padding
             p
-              a.btn-primary (href = "#") Подтвердить электронный адрес
+              a.btn-primary (href = "http://getreview.ru/sign_in") Войти в аккаунт
