@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "landings#index"
+  root to: "landings#mail"
 
   resource :account, only: :show
 
@@ -55,6 +55,10 @@ Rails.application.routes.draw do
   resource :widget, only: [:show]
   resources :api, only: [:index] do
     get :reviews, on: :collection
+  end
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
 
 end
