@@ -23,7 +23,7 @@
     h3.sidebar-navigation-section-title FOLLOW UP
     ul.sidebar-navigation-section-list
       li (trigger = "show:offers") Новое сообщение
-      li (trigger = "show:mass:offer:task:form") Массовая рассылка
+      //li (trigger = "show:mass:offer:task:form") Массовая рассылка
       li (trigger = "show:email:template") Шаблоны сообщений
 
 
