@@ -75,6 +75,7 @@ gem 'email_validator'
 # Delay jobs
 gem 'activejob'
 gem "sidekiq"
+gem "sidekiq-status"
 
 gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 

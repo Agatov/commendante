@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get "sign_in" => "account/authentications#sign_in"
   get "sign_up" => "account/authentications#sign_up"
   get "sign_out" => "account/authentications#sign_out"
+  get "change_password/:token" => "account/authentications#change_password"
+  post "change_password" => "account/authentications#save_password"
+  get "confirm_email/:email/:token" => "account/authentications#confirm_email"
   post "signin" => "account/authentications#signin"
   post "signup" => "account/authentications#signup"
 
@@ -24,6 +27,9 @@ Rails.application.routes.draw do
       get :sign_up, on: :collection
 
       get :change_password, on: :collection
+      put :save_password, on: :collection
+
+      get :confirm_email, on: :collection
 
       post :signin, on: :collection
       post :signup, on: :collection

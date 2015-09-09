@@ -12,6 +12,9 @@ class Account::AuthenticationsController < AccountsController
     redirect_to account_root_path if user_signed_in?
   end
 
+  def change_password
+  end
+
   def signup
     @user = User.new user_params
     @user.encrypt_password
@@ -22,6 +25,7 @@ class Account::AuthenticationsController < AccountsController
       @user.account = @account
       @user.save
       login @user 
+      UserMailer.user_created(@user).deliver_later
       render json: {status: :success, location: account_root_path}
     else
       if @user.errors
@@ -52,6 +56,31 @@ class Account::AuthenticationsController < AccountsController
       end
     else
       render json: {status: :error, error: I18n.t("auth.user_not_found_error")}
+    end
+  end
+
+  def save_password
+    @user = User.find_by_password_change_token(params[:token])
+
+    if @user
+      @user.password = params[:password]
+      @user.save
+      login @user
+      render json: {status: :success}
+    else
+      render json: {status: :error, error: "Ссылка для смены пароля устарела"}
+    end
+  end
+
+  def confirm_email
+    @user = User.find_by_email params[:email]
+
+    if @user and @user.email_confirmation_token == params[:token]
+      @user.email_confirmed = true
+      @user.save
+      redirect_to account_root_path
+    else
+      redirect_to root_path
     end
   end
 

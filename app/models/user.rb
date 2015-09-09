@@ -30,6 +30,19 @@ class User < ActiveRecord::Base
     Digest::MD5.hexdigest string    
   end
 
+  def generate_email_confirmation_token
+    self.email_confirmation_token = random_string(16)
+  end
+
+  def generate_change_password_token
+    self.password_change_token = loop do
+      radom_token = SecureRandom.hex(16)
+      break radom_token unless User.exists?(password_change_token: radom_token)
+    end
+
+    self.password_change_token_expires_at = Time.now + 3.hours
+  end
+
   def random_string(n)
     (('0'..'9').to_a + ('a'..'z').to_a + ('A'..'Z').to_a).shuffle.first(n).join
   end

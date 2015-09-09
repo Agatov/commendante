@@ -129,6 +129,50 @@ $ ->
     )
 
 
+  $("#change-password").on "click", ->
+
+    hideErrors()
+
+    password = $("input[name=password]").val()
+    password_repeat = $("input[name=password_repeat").val()
+    token = $("input[name=token]").val()
+
+    invalid_fields = []
+
+    if password.length == 0
+      invalid_fields.push {field: "password", msg: "Это поле обязательно для заполнения"}
+
+    if password_repeat.length == 0
+      invalid_fields.push {field: "password_repeat", msg: "Это поле обязательно для заполнения"}
+
+    if password != password_repeat
+      invalid_fields.push {field: "password", msg: "Пароль и подтверждение не совпадают"}
+
+    if invalid_fields.length > 0
+      render_validation_errors invalid_fields
+      return false
+
+    request = $.ajax(
+      url: "/change_password"
+      method: 'post'
+      data:
+        "password": password
+        "token": token
+    )
+
+    request.done (msg) ->
+      console.log msg
+      if msg.status == "success"
+        window.location.href = "/account#profile"
+      else
+        invalid_fields.push {field: "password", msg: msg.error}
+        render_validation_errors invalid_fields
+        return false
+
+
+
+
+
 window.render_validation_errors = (invalid_fields) ->
   render_validation_error(field) for field in invalid_fields
 

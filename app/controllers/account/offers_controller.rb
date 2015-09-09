@@ -7,6 +7,7 @@ class Account::OffersController < AccountsController
     @offer = current_user.account.widget.offers.build offer_params
 
     if @offer.save
+      OfferMailer.offer_created(@offer).deliver_later
       render :show
     else
       render json: {status: :error}

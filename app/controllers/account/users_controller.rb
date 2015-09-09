@@ -14,7 +14,7 @@ class Account::UsersController < AccountsController
     password = @user.generate_password
 
     if @user.save
-      #UserMailer.user_invited(@user, password).deliver
+      UserMailer.user_invited(@user, password).deliver
       render :show
     else
       render json: {status: :error}

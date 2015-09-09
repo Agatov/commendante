@@ -76,4 +76,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Настройки для мандрила
+  config.action_mailer.default_url_options = { :host => 'iricrm.ru' }
+  config.action_mailer.smtp_settings = {
+  :address   => "smtp.mandrillapp.com",
+  :port      => 587,
+  :enable_starttls_auto => true,
+  :user_name => "cto@iricrm.ru",
+  :password  => "bHJ_D8Y0xGsZ6Zz9-ElLXw", # SMTP password is any valid API key
+  :authentication => 'login',
+  :domain => 'iricrm.ru',
+  }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
 end

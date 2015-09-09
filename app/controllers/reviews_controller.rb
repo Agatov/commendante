@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     
 
     if @review.save
+      ReviewMailer.review_added(@review).deliver_later
       render :show
     else
       render json: {status: :error}
@@ -26,6 +27,7 @@ class ReviewsController < ApplicationController
     @review = Review.find_by_widget_id_and_reviewer_id @widget.id, @reviewer.id
 
     if @review.update_attributes review_params
+      ReviewMailer.review_updated(@review).deliver_later
       render :show
     else
       render json: {status: :error}
