@@ -87,7 +87,7 @@ class Account::AuthenticationsController < AccountsController
     if @user and @user.email_confirmation_token == params[:token]
       @user.email_confirmed = true
       @user.save
-      redirect_to account_root_path
+      redirect_to "/account#profile"
     else
       redirect_to root_path
     end
