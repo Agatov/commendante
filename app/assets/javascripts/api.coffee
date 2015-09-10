@@ -141,7 +141,7 @@ GetReview.API =
   initialize: (widget, cb) ->
 
     $.get(
-      "http://localhost:3000/api/reviews/#{widget}.json", 
+      "http://getreview.ru/api/reviews/#{widget}.json",
       (data) ->
         if data.status = "success"
           cb(data)
