@@ -6,6 +6,7 @@ class Widget < ActiveRecord::Base
   has_many :mass_offer_tasks
 
   before_create :generate_uid
+  after_create :create_email_template
 
   def board_url
     "board/#{self.uid}"
@@ -30,6 +31,12 @@ class Widget < ActiveRecord::Base
   def average_rate
     self.reviews.confirmed.average(:rate)
   end
+
+  def create_email_template
+    email_template = self.build_email_template
+    email_template.default_values
+    email_template.save
+  end 
 
 
   protected

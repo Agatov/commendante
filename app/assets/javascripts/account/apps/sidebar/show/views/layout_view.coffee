@@ -22,3 +22,6 @@
       $(@el).find("span.new-reviews-count").text "(#{@model.get('new_reviews_count')})"
       $(@el).find("span.confirmed-reviews-count").text "(#{@model.get('confirmed_reviews_count')})"
       $(@el).find("span.rejected-reviews-count").text "(#{@model.get('rejected_reviews_count')})"
+
+    onRender: ->
+      $(@el).find(".sidebar-container").perfectScrollbar()

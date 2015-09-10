@@ -8,7 +8,9 @@
 
     getEmailTemplate: (cb) ->
       etLoaded = App.request "entities:email:template:loaded"
-      return etLoaded if etLoaded
+      if etLoaded
+        cb(etLoaded)
+        return etLoaded
       
       et = new Entities.EmailTemplate
         id: 1

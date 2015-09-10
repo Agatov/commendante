@@ -1,42 +1,43 @@
-.sidebar-top Комменданте
+.sidebar-container
+  .sidebar-top Get Review
 
-.sidebar-navigation
+  .sidebar-navigation
 
-  .sidebar-navigation-section
-    h3.sidebar-navigation-section-title  Отзывы
-    ul.sidebar-navigation-section-list
-      li (trigger = "show:reviews")
-        | Все отзывы 
-        span.reviews-count = "(#{@reviews_count})"
-      li (trigger = "show:new:reviews")
-        | Новые отзывы 
-        span.new-reviews-count = "(#{@new_reviews_count})"
-      li (trigger = "show:confirmed:reviews")
-        | Одобренные отзывы 
-        span.confirmed-reviews-count = "(#{@confirmed_reviews_count})"
-      li (trigger = "show:rejected:reviews")
-        | Отклоненные отзывы 
-        span.rejected-reviews-count = "(#{@rejected_reviews_count})"
-
-
-  .sidebar-navigation-section
-    h3.sidebar-navigation-section-title FOLLOW UP
-    ul.sidebar-navigation-section-list
-      li (trigger = "show:offers") Новое сообщение
-      //li (trigger = "show:mass:offer:task:form") Массовая рассылка
-      li (trigger = "show:email:template") Шаблоны сообщений
+    .sidebar-navigation-section
+      h3.sidebar-navigation-section-title  Отзывы
+      ul.sidebar-navigation-section-list
+        li (trigger = "show:reviews")
+          | Все отзывы 
+          span.reviews-count = "(#{@reviews_count})"
+        li (trigger = "show:new:reviews")
+          | Новые отзывы 
+          span.new-reviews-count = "(#{@new_reviews_count})"
+        li (trigger = "show:confirmed:reviews")
+          | Одобренные отзывы 
+          span.confirmed-reviews-count = "(#{@confirmed_reviews_count})"
+        li (trigger = "show:rejected:reviews")
+          | Отклоненные отзывы 
+          span.rejected-reviews-count = "(#{@rejected_reviews_count})"
 
 
-  .sidebar-navigation-section
-    h3.sidebar-navigation-section-title Виджет
-    ul.sidebar-navigation-section-list
-      li (trigger = "show:options") Установка и опции
-      li (trigger = "show:users") Модераторы
-      //li Оплата
+    .sidebar-navigation-section
+      h3.sidebar-navigation-section-title FOLLOW UP
+      ul.sidebar-navigation-section-list
+        li (trigger = "show:offers") Новое сообщение
+        //li (trigger = "show:mass:offer:task:form") Массовая рассылка
+        li (trigger = "show:email:template") Шаблоны сообщений
 
-  .sidebar-navigation-section
-    h3.sidebar-navigation-section-title Аккаунт
-    ul.sidebar-navigation-section-list
-      li (trigger = "show:profile") Настройки профиля
-      li 
-        a (href = "/sign_out") Выйти из системы
+
+    .sidebar-navigation-section
+      h3.sidebar-navigation-section-title Виджет
+      ul.sidebar-navigation-section-list
+        li (trigger = "show:options") Установка и опции
+        li (trigger = "show:users") Модераторы
+        //li Оплата
+
+    .sidebar-navigation-section
+      h3.sidebar-navigation-section-title Аккаунт
+      ul.sidebar-navigation-section-list
+        li (trigger = "show:profile") Настройки профиля
+        li 
+          a (href = "/sign_out") Выйти из системы

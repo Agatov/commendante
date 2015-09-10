@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: "landings#mail"
+  root to: "landings#index"
 
   resource :account, only: :show
 

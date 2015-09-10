@@ -11,7 +11,6 @@
   API =
 
     show: ->
-      console.log "asd"
       EmailTemplateApp.Form.Controller.show()
 
     save: (et, cb) ->

@@ -10,6 +10,6 @@ module ApplicationHelper
   end
 
   def decorate_text(str)
-    ("<p>" + str.split("\n").join("<p></p>") + "</p>").html_safe
+    ("<p>" + str.split("\n\n").join("</p><p>") + "</p>").html_safe
   end
 end

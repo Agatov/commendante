@@ -1,4 +1,5 @@
 class OfferMailer < ActionMailer::Base
+  add_template_helper(ApplicationHelper)
   layout 'mail'
   default from: 'noreply@commendante.ru'
 

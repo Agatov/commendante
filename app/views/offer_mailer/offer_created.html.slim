@@ -1,14 +1,4 @@
 table (bgcolor="#FFFFFF")
   tr
     td
-      h1 Здравствуйте, Кирилл
-
-      p
-        | 
-          Это шаблон письма, который высылается клиенту компании, чтобы он оставил новый отзыв.
-
-      table
-        tr
-          td.padding
-            p
-              a.btn-primary (href = "#") Написать отзыв
+      = decorate_text(@offer.email_body)

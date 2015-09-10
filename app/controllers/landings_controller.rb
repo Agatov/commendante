@@ -1,10 +1,6 @@
 class LandingsController < ApplicationController
-  layout "mail"
+  layout "landing"
   
   def index
-    render "/app/views/user_mailer/user_inviter"
-  end
-
-  def mail
   end
 end
