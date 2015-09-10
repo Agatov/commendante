@@ -85,5 +85,3 @@ gem "carrierwave"
 gem "omniauth"
 gem "omniauth-vkontakte"
 
-gem 'font_assets'
-

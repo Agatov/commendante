@@ -102,8 +102,6 @@ GEM
     execjs (2.5.2)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
-    font_assets (0.1.11)
-      rack
     globalid (0.3.5)
       activesupport (>= 4.1.0)
     gon (5.2.3)
@@ -291,7 +289,6 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   email_validator
   execjs
-  font_assets
   gon
   jbuilder (~> 2.0)
   jquery-rails
