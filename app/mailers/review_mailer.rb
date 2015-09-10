@@ -1,6 +1,6 @@
 class ReviewMailer < ActionMailer::Base
   layout 'mail'
-  default from: 'noreply@commendante.ru'
+  default from: 'noreply@getreview.ru'
 
   def review_added(review)
     @review = review

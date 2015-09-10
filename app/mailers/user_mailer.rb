@@ -1,11 +1,11 @@
 class UserMailer < ActionMailer::Base
   layout 'mail'
-  default from: 'noreply@commendante.ru'
+  default from: 'noreply@getreview.ru'
 
   def user_invited(user, password)
     @user = user
     @password = password
-    mail(to: @user.email, subject: "Вам предоставлен доступ в commendante.ru")
+    mail(to: @user.email, subject: "Вам предоставлен доступ в getreview.ru")
   end
 
   def user_created(user)
