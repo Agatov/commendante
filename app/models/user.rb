@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   enum role: [:owner, :admin, :moderator]
 
+  before_create :generate_email_confirmation_token
+
   def can_authorize? (password)
     return true if self.password == encrypt(password + self.salt)
     false
@@ -31,7 +33,7 @@ class User < ActiveRecord::Base
   end
 
   def generate_email_confirmation_token
-    self.email_confirmation_token = random_string(16)
+    self.email_confirmation_token = SecureRandom.hex(16)
   end
 
   def generate_change_password_token
