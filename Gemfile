@@ -77,7 +77,7 @@ gem 'activejob'
 gem "sidekiq"
 gem "sidekiq-status"
 
-gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
+#gem "sentry-raven", :git => "https://github.com/getsentry/raven-ruby.git"
 
 gem 'rmagick', require: false
 gem "carrierwave"

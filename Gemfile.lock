@@ -1,12 +1,4 @@
 GIT
-  remote: https://github.com/getsentry/raven-ruby.git
-  revision: c45c399d9c29c719822970c4f67a837d3626169d
-  specs:
-    sentry-raven (0.14.0)
-      certifi
-      faraday (>= 0.7.6)
-
-GIT
   remote: https://github.com/jfirebaugh/skim
   revision: ca1e39fae0f957634575d6f8b53c5d66fda7f925
   specs:
@@ -92,7 +84,6 @@ GEM
       mime-types (>= 1.16)
     celluloid (0.16.0)
       timers (~> 4.0.0)
-    certifi (14.5.14)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -317,7 +308,6 @@ DEPENDENCIES
   sass
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  sentry-raven!
   sidekiq
   sidekiq-status
   simple_form
