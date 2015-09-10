@@ -72,8 +72,6 @@ a {
 ------------------------------------- */
 table.body-wrap {
   width: 100%;
-  padding: 20px;
-  margin: 40px;
 }
 table.body-wrap .container {
   border: 1px solid #f0f0f0;
@@ -134,7 +132,7 @@ ul li, ol li {
 }
 /* Set the padding on the td rather than the div for Outlook compatibility */
 .body-wrap .container {
-  padding: 20px;
+  padding: 50px 20px;
 }
 /* This should also be a block element, so that it will fill 100% of the .container */
 .content {
@@ -159,21 +157,28 @@ table.next-table {
 <!-- body -->
 <table class="body-wrap" bgcolor="#EAF2F4">
   <tr>
-    <td></td>
-    <td class="container" bgcolor="#FFFFFF">
+  <td style = "padding: 30px 0">
+    <table>
+      <tr>
+        <td></td>
+        <td class="container" bgcolor="#FFFFFF">
 
-      <!-- content -->
-      <div class="content">
-        <%= yield %>
-      </div>
-      <!-- /content -->
-      
-    </td>
-    <td></td>
+          <!-- content -->
+          <div class="content">
+            <%= yield %>
+          </div>
+          <!-- /content -->
+          
+        </td>
+        <td></td>
+      </tr>
+    </table>
+  </td>
   </tr>
 </table>
 <!-- /body -->
 
+<%#
 <!-- footer -->
 <table class="footer-wrap">
   <tr>
@@ -198,6 +203,6 @@ table.next-table {
   </tr>
 </table>
 <!-- /footer -->
-
+#%>
 </body>
 </html>
