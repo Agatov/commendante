@@ -23,7 +23,7 @@ class Account::ProfilesController < AccountsController
     @profile = current_user
     @profile.generate_change_password_token
     @profile.save
-    UserMailer.password_change(@profile).deliver_now
+    UserMailer.password_change(@profile).deliver_later
     render json: {status: :ok}
   end
 
