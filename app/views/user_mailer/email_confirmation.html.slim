@@ -11,4 +11,4 @@ table (bgcolor="#FFFFFF")
         tr
           td.padding
             p
-              a.btn-primary (href = "http://getreview.ru/confirm_email/#{@user.email}/#{@user.email_confirmation_token}") Подтвердить электронный адрес
+              a.btn-primary (href = "http://getreview.ru/confirm_email?email=#{@user.email}&token=#{@user.email_confirmation_token}") Подтвердить электронный адрес
