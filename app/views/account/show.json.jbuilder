@@ -18,11 +18,11 @@ GetReview.WidgetUID = "***";
 
   script.async = true;
   script.type = "application/javascript";
-  script.src = "http://localhost:3000/assets/widget.js";
+  script.src = "http://getreview.ru/widget/widget.js?version=0.1";
 
   css.rel = "stylesheet";
   css.type = "text/css";
-  css.href = "http://localhost:3000/assets/widget.css";
+  css.href = "http://getreview.ru/widget/widget.css?version=0.1";
 
   h.appendChild(script);
   h.appendChild(css);
