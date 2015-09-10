@@ -5,6 +5,8 @@ $ ->
   GetReview.API.initialize GetReview.WidgetUID, (data) ->
     GetReview.Data = data
 
+    return false unless data.show_widget
+
     grWidgetButton = document.createElement("div")
     $(grWidgetButton).addClass "gr-widget-button"
     $(grWidgetButton).html "<div class = 'gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"

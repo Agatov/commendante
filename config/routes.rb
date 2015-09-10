@@ -6,8 +6,6 @@ Rails.application.routes.draw do
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match '/api/reviews/:widget', to: "api#reviews", via: :get
 
-  get "/sites/:site_url", to: "reviews#index", :constraints => { :site_url => /[^\/]+/ }
-
   get "sign_in" => "account/authentications#sign_in"
   get "sign_up" => "account/authentications#sign_up"
   get "sign_out" => "account/authentications#sign_out"
