@@ -1,0 +1,39 @@
+// http://www.wufoo.com/guides/custom-radio-buttons-and-checkboxes/ - отсюда решение взято
+input[type=radio]
+  display: none
+
+input[type=radio] + label
+  display: inline-block
+  margin-top: 5px
+  padding: 5px 0 5px 40px
+  cursor: pointer
+  font-family: "OpenSans-Regular"
+  font-size: 17px
+  color: #53535B
+  margin-right: 20px
+  background: asset-url("input/radio.png") left center no-repeat
+  background-size: 25px 25px
+
+input[type=radio]:checked + label
+  background: asset-url("input/radio-active.png") left center no-repeat
+  background-size: 25px 25px
+
+
+input[type=checkbox]
+  display: none
+
+input[type=checkbox] + label
+  display: inline-block
+  margin-top: 5px
+  padding: 5px 0 5px 40px
+  cursor: pointer
+  font-family: "OpenSans-Regular"
+  font-size: 17px
+  color: #53535B
+  margin-right: 20px
+  background: asset-url("input/checkbox.png") left center no-repeat
+  background-size: 25px 25px
+
+input[type=checkbox]:checked + label
+  background: asset-url("input/checkbox-active.png") left center no-repeat
+  background-size: 25px 25px

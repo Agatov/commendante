@@ -16,6 +16,6 @@ class Account::WidgetsController < AccountsController
   private
 
   def widget_params
-    params.require(:widget).permit(:company_name, :site_url, :email)
+    params.require(:widget).permit(:company_name, :site_url, :email, :reviews_count_for_show, :hide_reviews_date)
   end
 end

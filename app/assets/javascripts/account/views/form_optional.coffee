@@ -13,6 +13,9 @@
     onSelectChange: (target) ->
       @trigger "form:state:changed", @model, target
 
+    onCheckboxChange: (target) ->
+      @trigger "form:state:changed", @model, target
+
     fieldUpdated: (element) ->
       $(element).removeAttr "disabled"
       $(element).parent().find("label").addClass "update-success"

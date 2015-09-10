@@ -1,4 +1,10 @@
-json.extract! widget, :uid, :company_name, :site_url, :email
+json.extract! widget, 
+  :uid, 
+  :company_name, 
+  :site_url, 
+  :email, 
+  :reviews_count_for_show, 
+  :hide_reviews_date
 
 json.reviews_count widget.reviews_count
 json.new_reviews_count widget.new_reviews_count
