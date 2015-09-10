@@ -1,6 +1,7 @@
 @AccountApp.module "Entities", (Entities, App, Backbone, Marionette, $, _) ->
 
   class Entities.Review extends Entities.Model
+    urlRoot: "/account/reviews"
 
     confirm: (cb) ->
       @set "moderated", true
