@@ -1,8 +1,12 @@
 class BoardsController < ApplicationController
-
+  include ApplicationHelper
   layout 'board'
 
   def show
+    if mobile_devise?
+      return render "boards/mobile_devise", layout: "mobile"
+    end
+
     return render :widget_not_found unless params[:widget]
     session[:widget] = params[:widget]
     @widget = Widget.find_by_uid session[:widget]
