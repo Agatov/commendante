@@ -1,3 +1,4 @@
+@import bourbon
 @import widget/fonts
 @import widget/perfect-scrollbar
 
@@ -127,6 +128,8 @@
 
   cursor: pointer
 
+  @include transition(all 0.3s ease-in-out)
+
   &:hover
     background: #fff
     color: #7F64B5
@@ -215,7 +218,7 @@
         font-family: "OpenSans-Regular"
 
       .gr-review-author-url
-        margin-top: 1px
+        margin-top: 10px
 
         a
           font-family: "OpenSans-Light"
@@ -228,7 +231,6 @@
       float: right
 
       .gr-review-rate-stars
-        margin-top: 2px
         @extend .gr-clearfix
         float: right
         width: 84px
@@ -255,7 +257,7 @@
           background-size: 84px 14px
 
       .gr-review-date
-        margin-top: 20px
+        margin-top: 25px
         font-family: "OpenSans-Light"
         font-size: 14px
         color: #999999
