@@ -17,7 +17,7 @@ class Account::UsersController < AccountsController
       UserMailer.user_invited(@user, password).deliver
       render :show
     else
-      render json: {status: :error}
+      render json: {user: @user.errors.messages}, status: 409
     end
   end
 

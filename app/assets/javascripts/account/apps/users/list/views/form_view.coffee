@@ -22,8 +22,4 @@
 
 
     initValidation: ->
-      Backbone.Validation.bind @,
-        valid: (view, attr) ->
-          $(view.el).find("[name=#{attr}]").removeClass("invalid")
-        invalid: (view, attr, error) ->
-          $(view.el).find("[name=#{attr}]").addClass("invalid")
+      Backbone.Validation.bind @

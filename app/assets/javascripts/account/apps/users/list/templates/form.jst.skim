@@ -1,9 +1,14 @@
 label Добавить нового пользователя
 .inline-form
-  input.email (type = "text" name = "email" value = "#{@email}" placeholder = "Электронная почта" autocomplete = "off")
+  .input-block.email
+    input (type = "text" name = "email" value = "#{@email}" placeholder = "Электронная почта" autocomplete = "off")
+    .validation-error
   
-  select.role (name = "role" value = "#{@role}")
-    option (value = "moderator") Модератор
-    option (value = "admin") Администратор
+  .input-block.role
+    select.role (name = "role" value = "#{@role}")
+      option (value = "moderator") Модератор
+      option (value = "admin") Администратор
+    .validation-error
 
-  .button.blue.js-add-user Добавить
+  .input-block.btn
+    .button.blue.js-add-user Добавить

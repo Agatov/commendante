@@ -23,7 +23,7 @@
         model: App.request "entities:user:new"
 
       view.on "valid:form:submit", (user) ->
-        App.vent.trigger "save:user", user, ->
+        App.vent.trigger "save:user", user, view, ->
           view.model = App.request "entities:user:new"
           view.render()
           App.request("entities:users:loaded").add user

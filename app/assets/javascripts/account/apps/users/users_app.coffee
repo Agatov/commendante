@@ -17,8 +17,8 @@
     showUserForm: (user_id) ->
       UsersApp.Form.Controller.show user_id
 
-    save: (user, cb) ->
-      UsersApp.User.Controller.save user, cb
+    save: (user, view, cb) ->
+      UsersApp.User.Controller.save user, view, cb
 
     delete: (user, cb) ->
       UsersApp.User.Controller.delete user, cb
@@ -32,8 +32,8 @@
     App.navigate "users/#{user_id}/edit"
     API.showUserForm user_id
 
-  App.vent.on "save:user", (user, cb) ->
-    API.save user, cb
+  App.vent.on "save:user", (user, view, cb) ->
+    API.save user, view, cb
 
   App.vent.on "delete:user", (user, cb) ->
     API.delete user, cb
