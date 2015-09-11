@@ -10,20 +10,22 @@ class SessionsController < ApplicationController
     unless reviewer
       return render json: {auth: auth}
       reviewer = Reviewer.new
-      reviewer.name = auth.info.first_name + " " + auth.info.last_name
       reviewer.provider = auth.provider
       reviewer.uid = auth.uid
 
       case auth.provider
         when "vkontakte"
+          reviewer.name = auth.info.first_name + " " + auth.info.last_name
           reviewer.url = auth.info.urls.Vkontakte
           reviewer.remote_avatar_url = auth.extra.raw_info.photo_200_orig!
 
         when "odnoklassniki"
+          reviewer.name = auth.info.first_name + " " + auth.info.last_name
           reviewer.url = auth.info.urls.Odnoklassniki
           reviewer.remote_avatar_url = auth.info.image
 
         when "facebook"
+          reviewer.name = auth.info.name
           reviewer.url = auth.info.urls.Facebook
           reviewer.remote_avatar_url = auth.info.image
 
