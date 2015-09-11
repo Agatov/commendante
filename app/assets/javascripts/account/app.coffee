@@ -24,9 +24,6 @@
     App.reqres.setHandler "get:widget", ->
       App.widget
 
-    App.reqres.setHandler "get:widget:code", ->
-      options.widget_code
-
     App.reqres.setHandler "get:profile", ->
       App.profile
 

@@ -18,7 +18,7 @@
 
     getInstallView: ->
       view = new Page.InstallView
-        model: (new Backbone.Model({widget_code: App.request("get:widget:code")}))
+        model: App.request("get:widget")
       view
 
     getFormView: ->

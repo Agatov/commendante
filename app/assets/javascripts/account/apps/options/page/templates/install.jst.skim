@@ -1,16 +1,13 @@
 .title Установка
 textarea.code-widget (disabled)
-  | 
-    <!-- GetReview.ru widget -->
-    <script type="text/javascript"> 
-  = @widget_code
-  | </script>
+  |
+    <script type = "text/javascript" src = "//getreview.ru/widget/widget.js?gr_widget_code=#{@uid}" charset = "UTF-8"></script>
 
 
 .notice
   p
     |
-      Это код вашего виджета. Скопируйте и вставьте его в код тех страниц, на которых вы хотите принимать обращения посетителей. Лучше всего это сделать сразу перед тегом <strong>&#060;/head&#062;</strong>
+      Это код вашего виджета. Скопируйте и вставьте его в код тех страниц, на которых вы хотите показывать виджет реальных отзывов. Лучше всего это сделать сразу перед тегом <strong>&#060;/head&#062;</strong>
 
   p
     |

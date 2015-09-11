@@ -1,3 +1,25 @@
+parseQuery = (query) ->
+  Params = new Object
+  if !query
+    return Params
+  
+  Pairs = query.split(/[;&]/)
+  i = 0
+  while i < Pairs.length
+    KeyVal = Pairs[i].split('=')
+    if !KeyVal or KeyVal.length != 2
+      i++
+      continue
+    key = unescape(KeyVal[0])
+    val = unescape(KeyVal[1])
+    val = val.replace(/\+/g, ' ')
+    Params[key] = val
+    i++
+  Params
+
+qs = $("script[src*='getreview.ru']").attr("src").replace(/^[^\?]+\??/,'')
+params = parseQuery(qs)
+
 h = document.getElementsByTagName("head")[0]
 css = document.createElement("link")
 css.rel = "stylesheet"
@@ -5,12 +27,14 @@ css.type = "text/css"
 css.href = "http://getreview.ru/widget/widget.css"
 h.appendChild(css)
 
+GetReview = {}
+GetReview.WidgetUID = params.gr_widget_code
 
 $ ->
 
   return false if GetReview.API.detectMobile(navigator.userAgent || navigator.vendor || window.opera)
 
-  GetReview.API.initialize GetReview.WidgetUID, (data) ->
+  GetReview.API.initialize (data) ->
     GetReview.Data = data
 
     return false unless data.show_widget
@@ -175,10 +199,9 @@ GetReview.API =
       </div>
     """
 
-  initialize: (widget, cb) ->
-
+  initialize: (cb) ->
     $.get(
-      "http://getreview.ru/api/widget/#{widget}.json",
+      "http://getreview.ru/api/widget/#{GetReview.WidgetUID}.json",
       (data) ->
         if data.status = "success"
           cb(data)
