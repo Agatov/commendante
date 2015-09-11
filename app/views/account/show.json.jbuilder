@@ -12,20 +12,13 @@ GetReview.WidgetUID = "***";
 
 (function(d, w) {
   var h = d.getElementsByTagName("head")[0],
-      script = d.createElement("script"),
-      css = d.createElement("link");
-
+      script = d.createElement("script");
 
   script.async = true;
   script.type = "application/javascript";
   script.src = "http://getreview.ru/widget/widget.js?version=0.1";
 
-  css.rel = "stylesheet";
-  css.type = "text/css";
-  css.href = "http://getreview.ru/widget/widget.css?version=0.1";
-
   h.appendChild(script);
-  h.appendChild(css);
 
 })(document, window)
 '
