@@ -25,3 +25,7 @@
 
     onRender: ->
       $(@el).find(".sidebar-container").perfectScrollbar()
+
+      if App.request("get:profile").get("role") == "moderator"
+        $(@el).find(".widget-section").hide()
+

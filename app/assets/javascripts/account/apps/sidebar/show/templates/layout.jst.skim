@@ -20,7 +20,7 @@
           span.rejected-reviews-count = "(#{@rejected_reviews_count})"
 
 
-    .sidebar-navigation-section
+    .sidebar-navigation-section.offers-section
       h3.sidebar-navigation-section-title Предложения
       ul.sidebar-navigation-section-list
         li (trigger = "show:offers") Новое предложение
@@ -28,7 +28,7 @@
         li (trigger = "show:email:template") Шаблон письма
 
 
-    .sidebar-navigation-section
+    .sidebar-navigation-section.widget-section
       h3.sidebar-navigation-section-title Виджет
       ul.sidebar-navigation-section-list
         li (trigger = "show:options") Установка и опции
