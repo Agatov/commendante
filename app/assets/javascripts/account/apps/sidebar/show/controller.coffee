@@ -15,7 +15,6 @@
         model: widget
 
       view.on "navigation:link:click", (options) ->
-        console.log options.trigger
         App.vent.trigger options.trigger
 
 

@@ -8,9 +8,7 @@ window.validateReview = ->
     window.contentInvalid = true
   else
     window.contentInvalid = false
-
-
-  console.log data
+  
 
   if data.rate == undefined or data.rate == ""
     showRateNotice()

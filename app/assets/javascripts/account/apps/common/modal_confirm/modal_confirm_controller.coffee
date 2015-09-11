@@ -3,7 +3,6 @@
   ModalConfirm.Controller =
 
     show: (options = {}) ->
-      console.log "!!!!!"
       modalView = @getModalView (options)
       modalOverlayView = @getModalOverlayView()
 

@@ -161,7 +161,6 @@ $ ->
     )
 
     request.done (msg) ->
-      console.log msg
       if msg.status == "success"
         window.location.href = "/account#profile"
       else
