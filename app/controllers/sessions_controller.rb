@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
     reviewer = Reviewer.find_by_provider_and_uid auth.provider, auth.uid
 
     unless reviewer
+      return render json: {auth: auth}
       reviewer = Reviewer.new
       reviewer.name = auth.info.first_name + " " + auth.info.last_name
       reviewer.provider = auth.provider
