@@ -22,6 +22,10 @@ class SessionsController < ApplicationController
           reviewer.url = auth.info.urls.Odnoklassniki
           reviewer.remote_avatar_url = auth.info.image
 
+        when "facebook"
+          reviewer.url = auth.info.urls.Facebook
+          reviewer.remote_avatar_url = auth.info.image
+
       end
 
       reviewer.save
