@@ -34,8 +34,8 @@ class SessionsController < ApplicationController
     end
 
     session[:reviewer_id] = reviewer.id
+
     
-    #redirect_to "/board/#{session[:widget]}"
-    redirect_to root_path
+    redirect_to "/board/#{session[:widget]}"
   end
 end

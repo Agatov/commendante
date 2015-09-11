@@ -13,6 +13,7 @@ class BoardsController < ApplicationController
     return render :widget_not_found if @widget.nil?
 
     
+    return render json: {widget: @widget}
     return render :login unless session[:reviewer_id]
 
     @reviewer = Reviewer.find session[:reviewer_id]
