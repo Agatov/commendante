@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
     session[:reviewer_id] = reviewer.id
     session[:olololo] = "ololololo"
 
-    return render json: {session: session, auth: auth}
+    return render json: {session: session, auth: auth, reviewer: reviewer}
 
     
     redirect_to "/board/#{session[:widget]}"
