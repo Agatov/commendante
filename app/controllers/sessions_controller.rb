@@ -24,6 +24,7 @@ class SessionsController < ApplicationController
           reviewer.remote_avatar_url = auth.info.image
 
         when "facebook"
+          session[:i_was_here] = "11111111"
           reviewer.name = auth.info.name
           reviewer.url = "https://fb.com/" + auth.uid
           reviewer.remote_avatar_url = auth.info.image
@@ -36,7 +37,7 @@ class SessionsController < ApplicationController
     session[:reviewer_id] = reviewer.id
     session[:olololo] = "ololololo"
 
-    return render json: {session: session}
+    return render json: {session: session, auth: auth}
 
     
     redirect_to "/board/#{session[:widget]}"
