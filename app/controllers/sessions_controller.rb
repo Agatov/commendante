@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
           session[:i_was_here] = "11111111"
           reviewer.name = auth.info.name
           reviewer.url = "https://fb.com/" + auth.uid
-          reviewer.remote_avatar_url = auth.info.image.gsub('http://','https://')
+          reviewer.remote_avatar_url = auth.info.image.gsub('http://','https://') + "?type=large"
 
       end
 
