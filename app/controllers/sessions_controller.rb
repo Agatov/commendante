@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
     reviewer = Reviewer.find_by_provider_and_uid auth.provider, auth.uid
 
     unless reviewer
-      return render json: {auth: auth}
       reviewer = Reviewer.new
       reviewer.provider = auth.provider
       reviewer.uid = auth.uid
@@ -26,7 +25,7 @@ class SessionsController < ApplicationController
 
         when "facebook"
           reviewer.name = auth.info.name
-          reviewer.url = auth.info.urls.Facebook
+          reviewer.url = "https://fb.com/" + auth.uid
           reviewer.remote_avatar_url = auth.info.image
 
       end
