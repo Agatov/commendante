@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
         when "odnoklassniki"
           reviewer.url = auth.info.urls.Odnoklassniki
-          reviewer.remote_avatar_url auth.info.image
+          reviewer.remote_avatar_url = auth.info.image
 
       end
 
