@@ -34,6 +34,7 @@ class SessionsController < ApplicationController
     end
 
     session[:reviewer_id] = reviewer.id
+    session[:olololo] = "ololololo"
 
     return render json: {session: session}
 
