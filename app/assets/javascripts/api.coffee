@@ -1,3 +1,11 @@
+h = document.getElementsByTagName("head")[0]
+css = document.createElement("link")
+css.rel = "stylesheet"
+css.type = "text/css"
+css.href = "http://getreview.ru/widget/widget.css"
+h.appendChild(css)
+
+
 $ ->
 
   return false if GetReview.API.detectMobile(navigator.userAgent || navigator.vendor || window.opera)
@@ -8,20 +16,20 @@ $ ->
     return false unless data.show_widget
 
     grWidgetButton = document.createElement("div")
-    $(grWidgetButton).addClass "gr-widget-button"
-    $(grWidgetButton).html "<div class = 'gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
+    $(grWidgetButton).addClass("gr-widget").addClass("gr-widget-button")
+    $(grWidgetButton).html "<div class = 'gr-widget gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
 
     grOverlay = document.createElement("div")
-    $(grOverlay).addClass("gr-overlay")
+    $(grOverlay).addClass("gr-widget").addClass("gr-overlay")
 
     grCloseOverlayButton = document.createElement("div")
-    $(grCloseOverlayButton).addClass "gr-close-overlay-icon"
+    $(grCloseOverlayButton).addClass("gr-widget").addClass("gr-close-overlay-icon")
 
     grPanel = document.createElement("div")
-    $(grPanel).addClass("gr-widget-panel")
+    $(grPanel).addClass("gr-widget").addClass("gr-widget-panel")
 
     grPanelContainer = document.createElement("div")
-    $(grPanelContainer).addClass "gr-widget-panel-container"
+    $(grPanelContainer).addClass("gr-widget").addClass "gr-widget-panel-container"
 
     $("body").append grOverlay
     $("body").append grCloseOverlayButton
@@ -31,28 +39,24 @@ $ ->
     $(".gr-widget-panel").append grPanelContainer
 
     if GetReview.Data.reviews_count == 0
-      $(".gr-widget-panel").addClass "gr-widget-panel-empty"
+      $(".gr-widget-panel").addClass("gr-widget-panel-empty")
       $(".gr-widget-panel-container").append(GetReview.API.renderEmpty(GetReview.Data))
     else
       $(".gr-widget-panel-container").append(GetReview.API.renderReviewsTop(GetReview.Data))
       $(".gr-widget-panel-container").append(GetReview.API.renderReviewsHeader(GetReview.Data))
       $(".gr-widget-panel-container").perfectScrollbar()
 
-
-      reviewsRoot = document.createElement("div")
-      $(reviewsRoot).addClass "gr-reviews"
-
-
-      $(reviewsRoot).append(GetReview.API.renderReview(reviewData)) for reviewData in GetReview.Data.reviews
-      $(".gr-widget-panel-container").append reviewsRoot
-
-    $(grWidgetButton).on "click", -> GetReview.API.showPanel()
+    $(grWidgetButton).on "click", -> 
+      GetReview.API.showPanel()
     $(grCloseOverlayButton).on "click", -> GetReview.API.hidePanel()
     $(grOverlay).on "click", -> GetReview.API.hidePanel()
 
 GetReview.API = 
 
   showPanel: ->
+
+    GetReview.API.showReviews() if $(".gr-reviews").size() == 0
+
     overlay = $(".gr-overlay")
     overlay.css "opacity", 0
     overlay.show()
@@ -68,7 +72,8 @@ GetReview.API =
     panel.css("left", "-520px")
     panel.css "opacity", 0
     panel.show()
-    panel.animate({"left": "0px", "opacity": 1}, 300)
+    $(".gr-widget-panel-container").scrollTop(0)
+    panel.animate {"left": "0px", "opacity": 1}, 300 
 
 
   hidePanel: ->
@@ -82,61 +87,89 @@ GetReview.API =
     panel.animate {"left": "-520px", "opacity": 0}, 300, -> panel.hide()
 
 
+  showReviews: ->
+    GetReview.API.showLoading()
+    reviewsRoot = document.createElement("div")
+    $(reviewsRoot).addClass("gr-widget").addClass("gr-reviews")
+
+    GetReview.API.getReviews (reviews) ->
+      $(reviewsRoot).append(GetReview.API.renderReview(reviewData)) for reviewData in reviews
+      GetReview.API.hideLoading()
+      $(".gr-widget-panel-container").append reviewsRoot
+
+  showLoading: ->
+    $(".gr-widget-panel-container").append GetReview.API.renderLoading()
+
+  hideLoading: ->
+    $(".gr-widget-panel-container").find(".gr-reviews-loading").remove()
+      
+
+
+
   renderEmpty: (data) ->
     """
-      <div class ="gr-widget-panel-empty-box">
-        <div class = "gr-widget-panel-empty-title">
+      <div class = "gr-widget gr-widget-panel-empty-box">
+        <div class = "gr-widget gr-widget-panel-empty-title">
           Увы, никто еще не написал ни одного отзыва,
           но вы можете быть первым!
         </div>
-        <a href = "#{data.review_board_url}"  class = "gr-button" target = "_blank">Написать первый отзыв</a>
+        <a href = "#{data.review_board_url}"  class = "gr-widget gr-button" target = "_blank">Написать первый отзыв</a>
       </div>
     """
 
 
   renderReviewsTop: (data) ->
     """
-      <div class = "gr-widget-top">
-        <a href = "#{data.review_board_url}" class = "gr-button" target = "_blank"> Написать свой отзыв </a>
+      <div class = "gr-widget gr-widget-top">
+        <a href = "#{data.review_board_url}" class = "gr-widget gr-button" target = "_blank"> Написать свой отзыв </a>
       </div>
     """
 
   renderReviewsHeader: (data) ->
     """
-      <div class ="gr-reviews-header">
-        <div class = "gr-reviews-total-rate">
-          <div class = "gr-reviews-total-rate-stars #{GetReview.API.getStarsClassByRate(data.average_rate_rounded)}"></div>
+      <div class ="gr-widget gr-reviews-header">
+        <div class = "gr-widget gr-reviews-total-rate">
+          <div class = "gr-widget gr-reviews-total-rate-stars #{GetReview.API.getStarsClassByRate(data.average_rate_rounded)}"></div>
         </div>
-        <div class = "gr-reviews-total-count">
+        <div class = "gr-widget gr-reviews-total-count">
           #{data.reviews_count} #{data.reviews_count_text} о компании</div>
-        <div class = "gr-reviews-company-name">«#{data.company_name}»</div>
+        <div class = "gr-widget gr-reviews-company-name">«#{data.company_name}»</div>
+      </div>
+    """
+
+  renderLoading: ->
+    """
+      <div class = "gr-reviews-loading">
+        <li></li>
+        <li></li>
+        <li></li>
       </div>
     """
 
   renderReview: (data) ->
     """
-      <div class = "gr-review">
-        <div class = "gr-review-header">
-          <div class = "gr-review-author-avatar">
-            <img src = "#{data.avatar}">
+      <div class = "gr-widget gr-review">
+        <div class = "gr-widget gr-review-header">
+          <div class = "gr-widget gr-review-author-avatar">
+            <img src = "#{data.avatar}" class = "gr-widget">
           </div>
 
-          <div class = "gr-review-author-details">
-            <div class = "gr-review-author-name">#{data.username}</div>
-            <div class = "gr-review-author-url">
-              <a href = "#{data.user_url}" target = "_blank">#{data.user_url}</a>
+          <div class = "gr-widget gr-review-author-details">
+            <div class = "gr-widget gr-review-author-name">#{data.username}</div>
+            <div class = "gr-widget gr-review-author-url">
+              <a href = "#{data.user_url}" target = "_blank" class = "gr-widget">#{data.user_url}</a>
             </div>
 
           </div>
 
-          <div class = "gr-review-right">
-            <div class ="gr-review-rate-stars #{GetReview.API.getStarsClassByRate(data.rate)}"></div>
-            <div class = "gr-review-date">#{data.date}</div>
+          <div class = "gr-widget gr-review-right">
+            <div class ="gr-widget gr-review-rate-stars #{GetReview.API.getStarsClassByRate(data.rate)}"></div>
+            <div class = "gr-widget gr-review-date">#{data.date}</div>
           </div>
 
         </div>
 
-        <div class = "gr-review-body">
+        <div class = "gr-widget gr-review-body">
           #{GetReview.API.decorateText(data.content)}
         </div>
       </div>
@@ -145,10 +178,18 @@ GetReview.API =
   initialize: (widget, cb) ->
 
     $.get(
-      "http://getreview.ru/api/reviews/#{widget}.json",
+      "http://getreview.ru/api/widget/#{widget}.json",
       (data) ->
         if data.status = "success"
           cb(data)
+    )
+
+  getReviews: (cb) ->
+    $.get(
+      "http://getreview.ru/api/reviews/#{GetReview.WidgetUID}.json",
+      (data) ->
+        if data.status == "success"
+          cb(data.reviews)
     )
 
   getStarsClassByRate: (rate) ->
@@ -161,7 +202,7 @@ GetReview.API =
 
   decorateText: (str) ->
     lines = str.replace(/[\r\n]+/g, '\n').split("\n")
-    "<p>" + lines.join("</p><p>") + "</p>"
+    "<p class = 'gr-widget'>" + lines.join("</p><p class = 'gr-widget'>") + "</p>"
 
 
   detectMobile: (a) ->

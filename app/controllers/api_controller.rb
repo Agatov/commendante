@@ -2,10 +2,17 @@ class ApiController < ApplicationController
 
   before_action :cors_set_access_control_headers
 
+  def widget
+    @widget = Widget.find_by_uid params[:widget]
+    unless @widget
+      return render json: {status: :error, message: "widget with id #{params[:widget]} was not found"}
+    end
+  end
+
   def reviews
     @widget = Widget.find_by_uid params[:widget]
     unless @widget
-      return render json: {status: :error, message: "site with url #{params[:url]} was not found"}
+      return render json: {status: :error, message: "widget with id #{params[:widget]} was not found"}
     end
     @reviews = @widget.reviews.where(moderated: true).order("id desc")
   end

@@ -1,25 +1,32 @@
+<style>
+    div {
+        margin: 100px;
+    }
+
+    body {
+        background: #000;
+    }
+
+    p {
+        font-size: 32px;
+    }
+</style>
+
 <!-- Commendate.ru widget -->
 <script type="text/javascript">
 
     var GetReview = {};
-    GetReview.WidgetUID = "4263ef409dd16c7df965";
+    GetReview.WidgetUID = "84c2c025746e46117a6e";
 
     (function(d, w) {
         var h = d.getElementsByTagName("head")[0],
-                script = d.createElement("script"),
-                css = d.createElement("link");
-
+                script = d.createElement("script");
 
         script.async = true;
         script.type = "application/javascript";
         script.src = "http://localhost:3000/widget/widget_dev.js";
 
-        css.rel = "stylesheet";
-        css.type = "text/css";
-        css.href = "http://localhost:3000/widget/widget.css";
-
         h.appendChild(script);
-        h.appendChild(css);
 
     })(document, window)
 </script>

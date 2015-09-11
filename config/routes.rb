@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resource :account, only: :show
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'api/widget/:widget', to: "api#widget", via: :get
   match '/api/reviews/:widget', to: "api#reviews", via: :get
 
   get "sign_in" => "account/authentications#sign_in"

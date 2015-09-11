@@ -1,6 +1,8 @@
+@import widget/reset
 @import bourbon
 @import widget/fonts
 @import widget/perfect-scrollbar
+@import widget/loading
 
 .gr-overlay
   display: none
@@ -14,6 +16,7 @@
   cursor: pointer
 
 .gr-close-overlay-icon
+  display: none
   z-index: 9998
   position: fixed
   top: 30px
@@ -264,12 +267,12 @@
 
   .gr-review-body
     margin-top: 20px
-    font-family: "OpenSans-Regular"
-    font-size: 14px
-    color: #555555
-    line-height: 22px
 
     p
+      font-family: "OpenSans-Regular"
+      font-size: 14px
+      color: #555555
+      line-height: 22px
       margin-bottom: 15px
 
       &:last-child
