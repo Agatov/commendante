@@ -18,6 +18,10 @@ class ReviewerAvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [100, 100]
   end
 
+  version :widget do
+    process :resize_to_fill => [40, 40]
+  end
+
 
   def extension_white_list
     %w(jpg jpeg gif png)

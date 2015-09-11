@@ -5,8 +5,7 @@ case HOSTNAME
       provider :odnoklassniki, "1154112000", "D3C0988A605912684E5BF553", :public_key => "CBALFLMFEBABABABA"
       provider :facebook, "958836017510529", "1edcce7ebd92b3f2f44c1618d9b646f5", 
         scope: 'email,public_profile',
-        info_fields: 'id,email,gender,link,locale,name,timezone,updated_time,verified',
-        image_size: "large"
+        info_fields: 'id,email,gender,link,locale,name,timezone,updated_time,verified'
     end
   else
     Rails.application.config.middleware.use OmniAuth::Builder do
@@ -14,7 +13,6 @@ case HOSTNAME
       provider :odnoklassniki, "1154112000", "D3C0988A605912684E5BF553", :public_key => "CBALFLMFEBABABABA"
       provider :facebook, "958836017510529", "1edcce7ebd92b3f2f44c1618d9b646f5", 
         scope: 'email,public_profile',
-        info_fields: 'id,email,gender,link,locale,name,timezone,updated_time,verified',
-        image_size: "large"
+        info_fields: 'id,email,gender,link,locale,name,timezone,updated_time,verified'
     end
 end
