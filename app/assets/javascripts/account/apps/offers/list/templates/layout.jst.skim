@@ -1,9 +1,9 @@
 .topbar 
-  .wrapper Сообщения
+  .wrapper Предложения
 
 .wrapper
   .form-region
   
   section
-    .title История сообщений
+    .title История предложения
     .table-region

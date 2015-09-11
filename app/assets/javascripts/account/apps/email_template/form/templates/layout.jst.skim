@@ -1,5 +1,5 @@
 .topbar 
-  .wrapper Шаблон сообщения
+  .wrapper Шаблон письма с предложением
 
 .wrapper
   .form-region

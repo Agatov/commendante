@@ -21,11 +21,11 @@
 
 
     .sidebar-navigation-section
-      h3.sidebar-navigation-section-title FOLLOW UP
+      h3.sidebar-navigation-section-title Предложения
       ul.sidebar-navigation-section-list
-        li (trigger = "show:offers") Новое сообщение
+        li (trigger = "show:offers") Новое предложение
         //li (trigger = "show:mass:offer:task:form") Массовая рассылка
-        li (trigger = "show:email:template") Шаблоны сообщений
+        li (trigger = "show:email:template") Шаблон письма
 
 
     .sidebar-navigation-section
