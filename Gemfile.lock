@@ -154,9 +154,14 @@ GEM
     omniauth (1.2.2)
       hashie (>= 1.2, < 4)
       rack (~> 1.0)
+    omniauth-facebook (2.0.1)
+      omniauth-oauth2 (~> 1.2)
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
+    omniauth-odnoklassniki (0.0.5)
+      omniauth (~> 1.0)
+      omniauth-oauth2 (~> 1.0)
     omniauth-vkontakte (1.3.3)
       multi_json
       omniauth (~> 1.0)
@@ -294,6 +299,8 @@ DEPENDENCIES
   jquery-rails
   letter_opener_web (~> 1.2.0)
   omniauth
+  omniauth-facebook
+  omniauth-odnoklassniki
   omniauth-vkontakte
   pg
   priscilla

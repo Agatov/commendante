@@ -84,4 +84,6 @@ gem "carrierwave"
 
 gem "omniauth"
 gem "omniauth-vkontakte"
+gem "omniauth-odnoklassniki"
+gem "omniauth-facebook"
 
