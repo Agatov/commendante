@@ -35,6 +35,8 @@ class SessionsController < ApplicationController
 
     session[:reviewer_id] = reviewer.id
 
+    return render json: {session: session}
+
     
     redirect_to "/board/#{session[:widget]}"
   end
