@@ -111,12 +111,4 @@ class Account::AuthenticationsController < AccountsController
   def user_params
     params.require(:user).permit(:name, :email, :password)
   end
-
-  def login(user)
-    session[:user_id] = user.id
-  end
-
-  def logout
-    reset_session
-  end
 end
