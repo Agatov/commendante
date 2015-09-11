@@ -6,7 +6,7 @@ case HOSTNAME
       provider :facebook, "958836017510529", "1edcce7ebd92b3f2f44c1618d9b646f5", 
         scope: 'email,public_profile',
         info_fields: 'id,email,gender,link,locale,name,timezone,updated_time,verified',
-        callback_url: 'http://getreview.ru/auth/facebook/callback'
+        redirect_uri: '/auth/facebook/callback'
     end
   else
     Rails.application.config.middleware.use OmniAuth::Builder do
@@ -15,6 +15,6 @@ case HOSTNAME
       provider :facebook, "958836017510529", "1edcce7ebd92b3f2f44c1618d9b646f5", 
         scope: 'email,public_profile',
         info_fields: 'id,email,gender,link,locale,name,timezone,updated_time,verified',
-        callback_url: 'http://getreview.ru/auth/facebook/callback'
+        redirect_uri: '/auth/facebook/callback'
     end
 end
