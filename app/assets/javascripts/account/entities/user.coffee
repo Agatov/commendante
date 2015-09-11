@@ -32,7 +32,9 @@
       users = App.request 'entities:users:loaded'
       if users
         user =  users.get(id)
-        cb(user)
+        user.fetch
+          success: ->
+            cb(user)
       else
         user = new Entities.User({id: id})
         user.fetch
