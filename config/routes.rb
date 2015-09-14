@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   get "sign_in" => "account/authentications#sign_in"
   get "sign_up" => "account/authentications#sign_up"
   get "sign_out" => "account/authentications#sign_out"
+  get "restore_password" => "account/authentications#restore_password"
+  put "restore_password" => "account/authentications#restore_password_by_email"
+
   get "change_password/:token" => "account/authentications#change_password"
   post "change_password" => "account/authentications#save_password"
   get "confirm_email" => "account/authentications#confirm_email"

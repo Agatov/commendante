@@ -115,6 +115,19 @@ class Account::AuthenticationsController < AccountsController
     end
   end
 
+  def restore_password_by_email
+    @user = User.find_by_email params[:email]
+
+    if @user
+      @user.generate_change_password_token
+      @user.save
+      UserMailer.password_change(@user).deliver_later
+      render json: {status: :success}
+    else
+      render json: {status: :error, message: "Пользователь с таким email не существует"}
+    end
+  end
+
   def sign_out
     logout
     redirect_to root_path

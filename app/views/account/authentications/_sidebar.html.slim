@@ -11,8 +11,8 @@
         li  (class = (current_page?('/sign_up')  ? 'active' : nil))
           a (href = "/sign_up") Регистрация
 
-        li 
-          a (href = "#") Забыли пароль?
+        li  (class = (current_page?('/restore_password')  ? 'active' : nil))
+          a (href = "/restore_password") Забыли пароль?
 
         li 
           a (href = "/") Вернуться на главную

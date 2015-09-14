@@ -168,6 +168,41 @@ $ ->
         render_validation_errors invalid_fields
         return false
 
+  $("#restore-password").on "click", ->
+    hideErrors()
+    email = $("input[name=email]").val()
+
+    invalid_fields = []
+
+    if email.length == 0
+      invalid_fields.push {field: "email", msg: "Это поле обязательно для заполнения"}
+    else if !validateEmail(email)
+      invalid_fields.push {field: "email", msg: "Введите ваш настоящий email"}
+
+    if invalid_fields.length > 0
+      render_validation_errors invalid_fields
+      return false
+
+    request = $.ajax(
+      url: "/restore_password"
+      method: 'put'
+      data:
+        "email": email
+    )
+
+    request.done (data) ->
+      if data.status == "success"
+        $(".central-box.restore-password").hide()
+        $(".central-box.password-email-sent").show()
+
+
+      if data.status == "error"
+        invalid_fields.push {field: "email", msg: data.error}
+        render_validation_errors invalid_fields
+        return false
+
+
+
 
 
 
