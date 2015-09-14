@@ -53,3 +53,5 @@ namespace :deploy do
     invoke 'unicorn:start'
   end
 end
+
+require 'appsignal/capistrano'

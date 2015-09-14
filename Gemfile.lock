@@ -47,6 +47,9 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    appsignal (0.11.15)
+      rack
+      thread_safe
     arel (6.0.2)
     autoprefixer-rails (5.2.1.1)
       execjs
@@ -137,6 +140,7 @@ GEM
     mime-types (2.6.1)
     mini_portile (0.6.2)
     minitest (5.7.0)
+    mixpanel-ruby (2.2.0)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
@@ -283,6 +287,7 @@ PLATFORMS
 
 DEPENDENCIES
   activejob
+  appsignal
   bootstrap-sass (~> 3.3.4)
   bourbon
   byebug
@@ -298,6 +303,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   letter_opener_web (~> 1.2.0)
+  mixpanel-ruby
   omniauth
   omniauth-facebook
   omniauth-odnoklassniki

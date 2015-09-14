@@ -87,3 +87,6 @@ gem "omniauth-vkontakte"
 gem "omniauth-odnoklassniki"
 gem "omniauth-facebook"
 
+gem 'appsignal'
+gem 'mixpanel-ruby'
+

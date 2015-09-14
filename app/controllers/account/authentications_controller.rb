@@ -94,7 +94,7 @@ class Account::AuthenticationsController < AccountsController
     @user = User.find_by_password_change_token(params[:token])
 
     if @user
-      @user.password = params[:password]
+      @user.set_password params[:password]
       @user.save
       login @user
       render json: {status: :success}

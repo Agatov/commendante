@@ -5,7 +5,7 @@
     label 
       | Название вашей компании 
       span.success 
-    input (type = "text" name = "company_name" value = "#{@company_name}" placeholder = "Без названия" autocomplete = "off")
+    input (type = "text" name = "company_name" value = "#{@company_name}" placeholder = "Введите название вашей компании" autocomplete = "off")
     .hint
       |
         Название вашей компании будет отображаться в email и sms сообщениях, которые отправляются вашим клиентам чтобы они оставляли отзывы.
@@ -30,7 +30,7 @@
 
   .option-input-block
     label 
-      | Не показывать виджет, если одобренных отзывов меньше чем 
+      | Показывать виджет, если количество одобренных отзывов больше чем
       span.success 
     input (type = "text" name = "reviews_count_for_show" value = "#{@reviews_count_for_show}" placeholder = "введите целое число" autocomplete = "off")
     .hint
