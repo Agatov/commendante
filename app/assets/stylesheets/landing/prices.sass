@@ -1,0 +1,67 @@
+.tariffs
+  @extend .clearfix
+
+  .tariff
+    float: left
+    margin-right: 20px
+
+    &:last-child
+      margin-right: 0px
+
+    &.free
+      width: 300px
+
+    &.pay
+      width: 620px
+
+
+    .tariff-name
+      padding-bottom: 10px
+      border-bottom: 1px solid #DFE3E9
+      font-family: "OpenSans-Regular"
+      font-size: 24px
+      color: #3DB8DB
+
+    .tariff-prices
+      @extend .clearfix
+      margin-top: 15px
+      margin-bottom: 25px
+
+      .tariff-price-block
+        float: left
+        width: 300px
+        margin-right: 20px
+
+        &:last-child
+          margin-right: 0px
+
+        .tariff-price
+          @extend .clearfix
+
+          .tariff-price-value
+            float: left
+            margin-right: 10px
+            font-family: "OpenSans-Light"
+            font-size: 48px
+            color: #3DB8DB
+
+            &.bold
+              font-family: "OpenSans-Semibold"
+
+          .tariff-price-details
+            float: left
+
+            .tariff-price-tax
+              font-family: "OpenSans-Regular"
+              font-size: 18px
+              color: #3DB8DB
+
+            .tariff-price-about
+              margin-top: 10px
+              font-size: "OpenSans-Light"
+              font-size: 14px
+              color: #72798B
+
+
+
+

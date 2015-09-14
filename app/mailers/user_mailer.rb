@@ -10,7 +10,13 @@ class UserMailer < ActionMailer::Base
 
   def user_created(user)
     @user = user
-    mail(to: @user.email, subject: "Спасибо за регистрацию в коменданте")
+    mail(to: @user.email, subject: "Спасибо за регистрацию в getreview.ru")
+  end
+
+  def user_created_short(user, password)
+    @user = user
+    @password = password
+    mail(to: @user.email, subject: "Спасибо за регистрацию в getreview.ru")
   end
 
   def email_confirmation(user)

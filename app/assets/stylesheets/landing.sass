@@ -1,43 +1,60 @@
-@import reset
-@import bourbon
-@import common/fonts
-@import common/buttons
+@import "reset"
+@import "bourbon"
+@import "common/fonts"
+@import "landing/intro"
+@import "landing/about"
+@import "landing/how"
+@import "landing/prices"
+@import "landing/steps"
+@import "landing/form"
+@import "landing/footer"
 
 body
+  background: #fff
   font-family: "OpenSans-Regular"
-  background: #7F64B5
-  color: #fff
+  color: #53535B
 
+.wrapper
+  width: 940px
+  margin: 0px auto
 
-.about
-  position: fixed
-  top: 50%
-  left: 50%
+section
+  padding: 75px 0
 
-  margin-top: -165px
-  margin-left: -200px
-
-  width: 320px
-  height: 330px
-  text-align: center
-
-  .name
-    font-size: 48px
-    color: #fff
-    padding-bottom: 20px
-    border-bottom: 1px solid #fff
-
-  .text
+  &.striped
     padding: 50px 0
-    font-size: 18px
-    line-height: 28px
-    color: #fff
+    background: #F6FBFC
 
-  .button
-    width: 180px
-    border: 1px solid #fff
-    color: #fff
+  .title
+    font-family: "OpenSans-Regular"
+    font-size: 36px
+    color: #53535B
+    margin-bottom: 50px
+    text-align: center
 
-    &:hover
-      background: #fff
-      color: #7F64B5
+    em
+      display: block
+      padding-top: 15px
+      font-family: "OpenSans-Regular"
+      font-size: 18px
+      line-height: 28px
+      color: #72798B
+
+.clearfix
+  &:after
+    clear: both
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+p
+  font-family: "OpenSans-Regular"
+  font-size: 15px
+  line-height: 22px
+  color: #53535B
+  margin-bottom: 20px
+
+  &:last-child
+    margin-bottom: 0px

@@ -1,0 +1,20 @@
+table (bgcolor="#FFFFFF")
+  tr
+    td
+      h1 Здравствуйте, #{@user.name}
+
+      p
+        | 
+          Благодарим вас за регистрацию в сервисе реальных отзывов <a href = "http://getreview.ru">Get Review</a>. Мы создали пароль для вашего аккаунта автоматически, но вы всегда можете поменять его в настройках аккаунта. 
+
+      p
+        |
+          Ваш email: #{@user.email}
+          <br />
+          Ваш пароль #{@password}
+
+      table
+        tr
+          td.padding
+            p
+              a.btn-primary (href = "http://getreview.ru/sign_in) Войти

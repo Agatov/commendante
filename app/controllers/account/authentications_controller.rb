@@ -41,7 +41,29 @@ class Account::AuthenticationsController < AccountsController
         render json: {status: :error, error: I18n.t("auth.unknown_error")}
       end
     end
+  end
 
+  def signup_short
+    @user = User.new user_params
+    @user.active = false
+    
+    password = @user.generate_password
+
+    if @user.save
+      @widget = Widget.create
+      @account = Account.create(widget_id: @widget.id)
+      @user.account = @account
+      @user.save
+      login @user 
+      UserMailer.user_created_short(@user, password).deliver_later
+      render json: {status: :success}
+    else
+      if @user.errors
+        if @user.errors[:email].size > 0
+          render json: {status: :error, error: @user.errors[:email].first}
+        end
+      end
+    end
   end
 
   def signin

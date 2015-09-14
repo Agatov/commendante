@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get "confirm_email" => "account/authentications#confirm_email"
   post "signin" => "account/authentications#signin"
   post "signup" => "account/authentications#signup"
+  post "signup_short" => "account/authentications#signup_short"
 
   namespace :account do
 
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
 
       post :signin, on: :collection
       post :signup, on: :collection
+      post :signup_short, on: :collection
       get :sign_out, on: :collection
     end
     resources :reviews
