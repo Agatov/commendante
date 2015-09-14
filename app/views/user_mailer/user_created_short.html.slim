@@ -1,7 +1,7 @@
 table (bgcolor="#FFFFFF")
   tr
     td
-      h1 Здравствуйте, #{@user.name}
+      h1 Здравствуйте!
 
       p
         | 
@@ -11,10 +11,10 @@ table (bgcolor="#FFFFFF")
         |
           Ваш email: #{@user.email}
           <br />
-          Ваш пароль #{@password}
+          Ваш пароль: #{@password}
 
       table
         tr
           td.padding
             p
-              a.btn-primary (href = "http://getreview.ru/sign_in) Войти
+              a.btn-primary (href = "http://getreview.ru/sign_in") Войти
