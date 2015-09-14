@@ -37,4 +37,8 @@ class SessionsController < ApplicationController
     
     redirect_to "/board/#{session[:widget]}"
   end
+
+  def failure
+    redirect_to "/board/#{session[:widget]}"
+  end
 end
