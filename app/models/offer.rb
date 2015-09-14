@@ -7,13 +7,13 @@ class Offer < ActiveRecord::Base
     self.email_subject = widget.email_template.subject
     self.email_body = widget.email_template.body
 
-    self.email_subject.gsub! "{name}", name
-    self.email_subject.gsub! "{company_name}", widget.company_name
+    self.email_subject.gsub!("{name}", name) if name
+    self.email_subject.gsub!("{company_name}", widget.company_name) if widget.company_name
 
-    self.email_body.gsub! "{name}", name
-    self.email_body.gsub! "{company_name}", widget.company_name
-    self.email_body.gsub! "{site_link}", "<a href = 'http://#{widget.site_url}'>#{widget.site_url}</a>"
-    self.email_body.gsub! "{url}", "<a href = 'http://getreview.ru/#{widget.board_url}'>getreview.ru/#{widget.board_url}</a>"
+    self.email_body.gsub!("{name}", name) if name
+    self.email_body.gsub!("{company_name}", widget.company_name) if widget.company_name
+    self.email_body.gsub!("{site_link}", "<a href = 'http://#{widget.site_url}'>#{widget.site_url}</a>") if widget.site_url
+    self.email_body.gsub!("{url}", "<a href = 'http://getreview.ru/#{widget.board_url}'>getreview.ru/#{widget.board_url}</a>")
     self.email_body.gsub! "{button}", 
       "<table><tr><td class = 'padding'>
         <p><a class = 'btn-primary' href = 'http://getreview.ru/#{widget.board_url}'>Оставить отзыв</a></p>

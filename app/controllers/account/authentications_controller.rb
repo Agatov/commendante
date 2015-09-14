@@ -21,7 +21,7 @@ class Account::AuthenticationsController < AccountsController
 
     if @user.save
       @widget = Widget.create
-      @account = Account.create(widget_id: @widget.id)
+      @account = Account.create(widget_id: @widget.id, owner_id: @user.id)
       @user.account = @account
       @user.save
       login @user 
@@ -51,7 +51,7 @@ class Account::AuthenticationsController < AccountsController
 
     if @user.save
       @widget = Widget.create
-      @account = Account.create(widget_id: @widget.id)
+      @account = Account.create(widget_id: @widget.id, owner_id: @user.id)
       @user.account = @account
       @user.save
       login @user 

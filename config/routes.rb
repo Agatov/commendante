@@ -1,4 +1,7 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  
   root to: "landings#index"
 
   resource :account, only: :show
@@ -70,6 +73,7 @@ Rails.application.routes.draw do
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
+    mount Sidekiq::Web => '/sidekiq'
   end
 
 end
