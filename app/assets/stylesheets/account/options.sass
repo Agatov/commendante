@@ -45,4 +45,48 @@
 
     .button
       margin-top: 20px
+
+.colors
+  margin-top: 30px
+  @extend .clearfix
+
+  .color
+    float: left
+    width: 40px
+    height: 40px
+    margin-right: 20px
+    cursor: pointer
+    font-family: "OKIcon"
+    color: #fff
+    font-size: 16px
+    line-height: 39px
+    text-align: center
+
+    &.purple
+      background: #7F64B5
+
+    &.green
+      background: #23BE58
+
+    &.yellow
+      background: #FCC04E
+
+    &.red
+      background: #F97A66
+
+    &.blue
+      background: #02B3D0
+
+    &.dark-blue
+      background: #5F6C90
+
+    &:last-child
+      margin-right: 0px
+
+    &.active
+      span
+        display: inline
+
+    span
+      display: none
   

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="100px" height="90px" viewBox="0 0 100 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 158</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Веб-компонент" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Desktop" sketch:type="MSArtboardGroup" transform="translate(-50.000000, -50.000000)" fill="#7F64B5">
+            <g id="Фиолетовая" sketch:type="MSLayerGroup" transform="translate(50.000000, 50.000000)">
+                <g id="hover" sketch:type="MSShapeGroup">
+                    <g id="Fill-157">
+                        <path d="M52.592354,0 C23.5932131,0 0,17.4753925 0,38.9544822 C0,50.9720555 7.05111684,62.0324579 19.3341924,69.2922648 C19.5554124,69.4586354 20.1030928,70.5627311 19.8947595,72.6391223 C19.6928694,74.6506938 18.2109107,81.6144908 7.63960481,86.6509819 C6.99957045,86.9556345 6.63230241,87.6427234 6.73324742,88.3449369 C6.83419244,89.049311 7.37757732,89.6045998 8.07774914,89.7147933 C8.14862543,89.7277572 9.89905498,90 12.6825601,90 C19.8969072,90 33.3161512,88.2023335 43.1292955,76.3273635 C43.9067869,76.4591636 44.6907216,76.6125702 45.4789519,76.7702982 C47.766323,77.2197148 50.128866,77.6864167 52.592354,77.6864167 C80.5047251,77.6864167 100,61.7580544 100,38.9544822 C100,16.0191098 80.5047251,0 52.592354,0 Z" id="Fill-158"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

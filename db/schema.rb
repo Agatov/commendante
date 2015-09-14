@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150910173811) do
+ActiveRecord::Schema.define(version: 20150914173639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,10 +95,11 @@ ActiveRecord::Schema.define(version: 20150910173811) do
     t.string   "company_name"
     t.string   "site_url"
     t.string   "email"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
     t.integer  "reviews_count_for_show", default: 0
     t.boolean  "hide_reviews_date",      default: false
+    t.string   "color_schema",           default: "purple"
   end
 
 end

@@ -38,7 +38,6 @@
   background: #fff
 
   &.gr-widget-panel-empty
-    background: #7F64B5
 
     .gr-widget-panel-empty-box
       width: 100%
@@ -73,29 +72,49 @@
 
 .gr-widget-button
   position: fixed
-  bottom: 50px
-  left: 20px
-  width: 112px
-  height: 100px
-  background: asset_url("widget/widget_button.png") no-repeat
-  background-size: 112px 100px
+  bottom: 10px
+  left: 10px
+  width: 100px
+  height: 90px
+  background: asset_url("widget/button/fiolent.png") no-repeat
+  background-size: 100px 90px
   text-align: center
   box-sizing: border-box
   padding-top: 10px
   font-family: "OpenSans-Regular"
-  font-size: 14px
-  line-height: 19px
+  font-size: 13px
+  line-height: 16px
   color: #fff
   cursor: pointer
 
-  &:hover
-    background: asset_url("widget/widget_button_blue.png") no-repeat
-    background-size: 112px 100px
+  &.purple
+    background: asset_url("widget/button/purple.png") no-repeat
+    background-size: 100px 90px
+
+  &.blue
+    background: asset_url("widget/button/blue.png") no-repeat
+    background-size: 100px 90px
+
+  &.red
+    background: asset_url("widget/button/red.png") no-repeat
+    background-size: 100px 90px
+
+  &.yellow
+    background: asset_url("widget/button/yellow.png") no-repeat
+    background-size: 100px 90px
+
+  &.green
+    background: asset_url("widget/button/green.png") no-repeat
+    background-size: 100px 90px
+
+  &.dark-blue
+    background: asset_url("widget/button/dark-blue.png") no-repeat
+    background-size: 100px 90px
 
   .gr-button-reviews-count
     font-family: "OpenSans-Semibold"
-    font-size: 18px
-    line-height: 24px
+    font-size: 16px
+    line-height: 22px
 
 .gr-clearfix
   &:after
@@ -108,7 +127,6 @@
 
 .gr-widget-top
   width: 100%
-  background: #7F64B5
   padding: 30px 0
 
 .gr-button
@@ -277,4 +295,22 @@
 
       &:last-child
         margin-bottom: 0px
+
+.gr-purle-bg
+  background: #7F64B5
+
+.gr-yellow-bg
+  background: #FCC04E
+
+.gr-green-bg
+  background: #23BE58
+
+.gr-blue-bg
+  background: #02B3D0
+
+.gr-dark-blue-bg
+  background: #5F6C90
+
+.gr-red-bg
+  background: #F97A66
 

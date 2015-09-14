@@ -46,3 +46,21 @@
     .hint
       |
         Эта опция пригодится, если вы недавно разместили виджет на сайте и активно просите ваших постоянных клиентов оставить отзывы. Чтобы не вызывать у посетителей сайта вопроса «А почему все отзывы добавлены в последние два дня?», мы рекомендуем на время скрыть дату отзывов.
+
+  .option-input-block
+    label 
+      | Выберите цветовую гамму виджета
+      span.success  
+    .colors
+      .color.purple (color = "purple")
+        span 
+      .color.green (color = "green")
+        span 
+      .color.yellow (color = "yellow")
+        span 
+      .color.red (color = "red")
+        span 
+      .color.blue (color = "blue")
+        span 
+      .color.dark-blue (color = "dark-blue")
+        span 

@@ -12,3 +12,4 @@ json.average_rate average_rate
 json.average_rate_rounded average_rate.round
 
 json.review_board_url "http://#{HOSTNAME}/" + @widget.board_url
+json.color_schema @widget.color_schema

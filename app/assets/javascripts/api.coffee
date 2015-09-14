@@ -41,6 +41,7 @@ $ ->
 
     grWidgetButton = document.createElement("div")
     $(grWidgetButton).addClass("gr-widget").addClass("gr-widget-button")
+    $(grWidgetButton).addClass GetReview.Data.color_schema
     $(grWidgetButton).html "<div class = 'gr-widget gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
 
     grOverlay = document.createElement("div")
@@ -64,6 +65,7 @@ $ ->
 
     if GetReview.Data.reviews_count == 0
       $(".gr-widget-panel").addClass("gr-widget-panel-empty")
+      $(".gr-widget-panel").addClass("gr-#{GetReview.Data.color_schema}-bg")
       $(".gr-widget-panel-container").append(GetReview.API.renderEmpty(GetReview.Data))
     else
       $(".gr-widget-panel-container").append(GetReview.API.renderReviewsTop(GetReview.Data))
@@ -144,7 +146,7 @@ GetReview.API =
 
   renderReviewsTop: (data) ->
     """
-      <div class = "gr-widget gr-widget-top">
+      <div class = "gr-widget gr-widget-top gr-#{data.color_schema}-bg">
         <a href = "#{data.review_board_url}" class = "gr-widget gr-button" target = "_blank"> Написать свой отзыв </a>
       </div>
     """
