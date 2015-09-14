@@ -3,8 +3,7 @@ class RegistrationAnalyticsAccountJob < ActiveJob::Base
 
   def perform(account, message)
     mixpanel_conf = YAML.load_file("#{Rails.root}/config/mixpanel.yml")
-    #tracker = Mixpanel::Tracker.new(mixpanel_conf["#{Rails.env}_token"])
-    tracker = Mixpanel::Tracker.new(mixpanel_conf["development_token"])
+    tracker = Mixpanel::Tracker.new(mixpanel_conf["#{Rails.env}_token"])
     
     tracker.people.set(account.id, {
       "$name" => account.owner.name,
