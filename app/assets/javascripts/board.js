@@ -1,5 +1,5 @@
 //= require lib/jquery
-//= require lib/autogrow
+//= require lib/autosize
 //= require lib/spin
 //= require lib/jquery.spin
 //= require board/initializer

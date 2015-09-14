@@ -1,9 +1,8 @@
 $ ->
 
-  $("textarea").autogrow()
-
   $("textarea").on "focus", ->
     hideContentNotice() if contentInvalid
+    autosize $(@)
 
   $(".star").on "mouseover", ->
     hideRateNotice() if rateInvalid

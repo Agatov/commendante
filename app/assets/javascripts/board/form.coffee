@@ -33,6 +33,7 @@ $ ->
         hideFormWidget ->
           renderResultWidget data.review
           showResultWidget()
+          autosize.destroy $("textarea")
  
  window.renderResultWidget = (data) ->
   review = $(".result-widget .review")
