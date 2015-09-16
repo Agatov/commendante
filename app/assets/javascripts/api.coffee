@@ -31,14 +31,14 @@ GetReview = {}
 GetReview.WidgetUID = params.gr_widget_code
 
 $ ->
+  $(document).trigger "gr:widget:ready"
   GetReview.API.initialize()
+  $(document).on "gr:widget:initialize", -> GetReview.API.initialize()
 
 GetReview.API = 
 
   initialize: ->
     return false if GetReview.API.detectMobile(navigator.userAgent || navigator.vendor || window.opera)
-
-    $(document).trigger "gr:widget:ready"
 
     GetReview.API.getWidget (data) ->
       GetReview.Data = data
