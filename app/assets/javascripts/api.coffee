@@ -101,6 +101,8 @@ GetReview.API =
     $(".gr-widget-panel-container").scrollTop(0)
     panel.animate {"left": "0px", "opacity": 1}, 300 
 
+    $(document).trigger "gr:widget:panel:opened"
+
 
   hidePanel: ->
     overlay = $(".gr-overlay")
