@@ -9,10 +9,9 @@ role :web, %w{root@188.120.246.84}
 role :db,  %w{root@188.120.246.84}
 
 #set :staging, :production
-set :rails_env, 'production'
-set :branch, "production"
-set :deploy_to, '/apps/getreview'
-
+set :rails_env, 'staging'
+set :branch, "staging"
+set :deploy_to, '/apps/getreview-staging'
 
 
 # Extended Server Syntax
