@@ -38,6 +38,8 @@ GetReview.API =
   initialize: ->
     return false if GetReview.API.detectMobile(navigator.userAgent || navigator.vendor || window.opera)
 
+    $(document).trigger "gr:widget:ready"
+
     GetReview.API.getWidget (data) ->
       GetReview.Data = data
 
