@@ -10,7 +10,7 @@ role :db,  %w{root@188.120.246.84}
 
 #set :staging, :production
 set :rails_env, 'production'
-set :branch, "production"
+set :branch, "master"
 set :deploy_to, '/apps/getreview'
 
 

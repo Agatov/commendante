@@ -225,4 +225,4 @@ window.validateEmail = (email) ->
   return re.test(email)
 
 window.reachGoal = (goal) ->
-  yaCounter32527235.reachGoal goal
+  yaCounter.reachGoal goal
