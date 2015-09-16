@@ -27,6 +27,7 @@ $ ->
           return false
 
         if data.status == 'success'
+          reachGoal "registration"
           window.location.href = "/account#options"
     )
 

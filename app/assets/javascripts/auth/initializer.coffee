@@ -43,6 +43,7 @@ $ ->
           return false
 
         if data.status == 'success'
+          reachGoal "registration"
           $("input").val ""
           $(".central-box.registration.step-1").hide()
           $(".central-box.registration.step-2").show()
@@ -222,3 +223,6 @@ window.hideErrors = ->
 window.validateEmail = (email) ->
   re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i
   return re.test(email)
+
+window.reachGoal = (goal) ->
+  yaCounter32527235.reachGoal goal
