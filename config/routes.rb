@@ -76,9 +76,14 @@ Rails.application.routes.draw do
     get :reviews, on: :collection
   end
 
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == "agatov" && password == "a8g_358~1oUqf"
+  end if Rails.env.production?
+
+  mount Sidekiq::Web => '/sidekiq'
+  
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
-    mount Sidekiq::Web => '/sidekiq'
   end
 
 end
