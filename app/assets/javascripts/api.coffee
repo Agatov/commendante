@@ -31,53 +31,55 @@ GetReview = {}
 GetReview.WidgetUID = params.gr_widget_code
 
 $ ->
-
-  return false if GetReview.API.detectMobile(navigator.userAgent || navigator.vendor || window.opera)
-
-  GetReview.API.initialize (data) ->
-    GetReview.Data = data
-
-    return false unless data.show_widget
-
-    grWidgetButton = document.createElement("div")
-    $(grWidgetButton).addClass("gr-widget").addClass("gr-widget-button")
-    $(grWidgetButton).addClass GetReview.Data.color_schema
-    $(grWidgetButton).html "<div class = 'gr-widget gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
-
-    grOverlay = document.createElement("div")
-    $(grOverlay).addClass("gr-widget").addClass("gr-overlay")
-
-    grCloseOverlayButton = document.createElement("div")
-    $(grCloseOverlayButton).addClass("gr-widget").addClass("gr-close-overlay-icon")
-
-    grPanel = document.createElement("div")
-    $(grPanel).addClass("gr-widget").addClass("gr-widget-panel")
-
-    grPanelContainer = document.createElement("div")
-    $(grPanelContainer).addClass("gr-widget").addClass "gr-widget-panel-container"
-
-    $("body").append grOverlay
-    $("body").append grCloseOverlayButton
-    $("body").append grPanel
-    $("body").append grWidgetButton
-
-    $(".gr-widget-panel").append grPanelContainer
-
-    if GetReview.Data.reviews_count == 0
-      $(".gr-widget-panel").addClass("gr-widget-panel-empty")
-      $(".gr-widget-panel").addClass("gr-#{GetReview.Data.color_schema}-bg")
-      $(".gr-widget-panel-container").append(GetReview.API.renderEmpty(GetReview.Data))
-    else
-      $(".gr-widget-panel-container").append(GetReview.API.renderReviewsTop(GetReview.Data))
-      $(".gr-widget-panel-container").append(GetReview.API.renderReviewsHeader(GetReview.Data))
-      $(".gr-widget-panel-container").perfectScrollbar()
-
-    $(grWidgetButton).on "click", -> 
-      GetReview.API.showPanel()
-    $(grCloseOverlayButton).on "click", -> GetReview.API.hidePanel()
-    $(grOverlay).on "click", -> GetReview.API.hidePanel()
+  GetReview.API.initialize()
 
 GetReview.API = 
+
+  initialize: ->
+    return false if GetReview.API.detectMobile(navigator.userAgent || navigator.vendor || window.opera)
+
+    GetReview.API.getWidget (data) ->
+      GetReview.Data = data
+
+      return false unless data.show_widget
+
+      grWidgetButton = document.createElement("div")
+      $(grWidgetButton).addClass("gr-widget").addClass("gr-widget-button")
+      $(grWidgetButton).addClass GetReview.Data.color_schema
+      $(grWidgetButton).html "<div class = 'gr-widget gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
+
+      grOverlay = document.createElement("div")
+      $(grOverlay).addClass("gr-widget").addClass("gr-overlay")
+
+      grCloseOverlayButton = document.createElement("div")
+      $(grCloseOverlayButton).addClass("gr-widget").addClass("gr-close-overlay-icon")
+
+      grPanel = document.createElement("div")
+      $(grPanel).addClass("gr-widget").addClass("gr-widget-panel")
+
+      grPanelContainer = document.createElement("div")
+      $(grPanelContainer).addClass("gr-widget").addClass "gr-widget-panel-container"
+
+      $("body").append grOverlay
+      $("body").append grCloseOverlayButton
+      $("body").append grPanel
+      $("body").append grWidgetButton
+
+      $(".gr-widget-panel").append grPanelContainer
+
+      if GetReview.Data.reviews_count == 0
+        $(".gr-widget-panel").addClass("gr-widget-panel-empty")
+        $(".gr-widget-panel").addClass("gr-#{GetReview.Data.color_schema}-bg")
+        $(".gr-widget-panel-container").append(GetReview.API.renderEmpty(GetReview.Data))
+      else
+        $(".gr-widget-panel-container").append(GetReview.API.renderReviewsTop(GetReview.Data))
+        $(".gr-widget-panel-container").append(GetReview.API.renderReviewsHeader(GetReview.Data))
+        $(".gr-widget-panel-container").perfectScrollbar()
+
+      $(grWidgetButton).on "click", -> 
+        GetReview.API.showPanel()
+      $(grCloseOverlayButton).on "click", -> GetReview.API.hidePanel()
+      $(grOverlay).on "click", -> GetReview.API.hidePanel()
 
   showPanel: ->
 
@@ -203,7 +205,7 @@ GetReview.API =
       </div>
     """
 
-  initialize: (cb) ->
+  getWidget: (cb) ->
     $.get(
       "http://getreview.ru/api/widget/#{GetReview.WidgetUID}.json",
       (data) ->
