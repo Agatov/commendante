@@ -6,5 +6,5 @@ json.reviews @reviews do |review|
   json.username review.reviewer.name
   json.user_url review.reviewer.url
   json.avatar "http://#{HOSTNAME}" + review.reviewer.avatar_url(:widget)
-  json.date @widget.hide_reviews_date ? "" : Russian::strftime(review.created_at, "%d %B %H:%M") 
+  json.date @widget.hide_reviews_date ? "" : Russian::strftime(review.created_at, "%d %B %Y") 
 end
