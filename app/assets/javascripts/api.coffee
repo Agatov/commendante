@@ -1,3 +1,5 @@
+gr_$ = jQuery.noConflict()
+
 parseQuery = (query) ->
   Params = new Object
   if !query
@@ -17,7 +19,7 @@ parseQuery = (query) ->
     i++
   Params
 
-qs = $("script[src*='getreview.ru']").attr("src").replace(/^[^\?]+\??/,'')
+qs = gr_$("script[src*='getreview.ru']").attr("src").replace(/^[^\?]+\??/,'')
 params = parseQuery(qs)
 
 h = document.getElementsByTagName("head")[0]
@@ -30,10 +32,10 @@ h.appendChild(css)
 GetReview = {}
 GetReview.WidgetUID = params.gr_widget_code
 
-$ ->
-  $(document).trigger "gr:widget:ready"
+gr_$ ->
+  gr_$(document).trigger "gr:widget:ready"
   GetReview.API.initialize()
-  $(document).on "gr:widget:initialize", -> GetReview.API.initialize()
+  gr_$(document).on "gr:widget:initialize", -> GetReview.API.initialize()
 
 GetReview.API = 
 
@@ -46,94 +48,94 @@ GetReview.API =
       return false unless data.show_widget
 
       grWidgetButton = document.createElement("div")
-      $(grWidgetButton).addClass("gr-widget").addClass("gr-widget-button")
-      $(grWidgetButton).addClass GetReview.Data.color_schema
-      $(grWidgetButton).html "<div class = 'gr-widget gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
+      gr_$(grWidgetButton).addClass("gr-widget").addClass("gr-widget-button")
+      gr_$(grWidgetButton).addClass GetReview.Data.color_schema
+      gr_$(grWidgetButton).html "<div class = 'gr-widget gr-button-reviews-count'>#{GetReview.Data.reviews_count}</div> #{GetReview.Data.reviews_count_text}"
 
       grOverlay = document.createElement("div")
-      $(grOverlay).addClass("gr-widget").addClass("gr-overlay")
+      gr_$(grOverlay).addClass("gr-widget").addClass("gr-overlay")
 
       grCloseOverlayButton = document.createElement("div")
-      $(grCloseOverlayButton).addClass("gr-widget").addClass("gr-close-overlay-icon")
+      gr_$(grCloseOverlayButton).addClass("gr-widget").addClass("gr-close-overlay-icon")
 
       grPanel = document.createElement("div")
-      $(grPanel).addClass("gr-widget").addClass("gr-widget-panel")
+      gr_$(grPanel).addClass("gr-widget").addClass("gr-widget-panel")
 
       grPanelContainer = document.createElement("div")
-      $(grPanelContainer).addClass("gr-widget").addClass "gr-widget-panel-container"
+      gr_$(grPanelContainer).addClass("gr-widget").addClass "gr-widget-panel-container"
 
-      $("body").append grOverlay
-      $("body").append grCloseOverlayButton
-      $("body").append grPanel
-      $("body").append grWidgetButton
+      gr_$("body").append grOverlay
+      gr_$("body").append grCloseOverlayButton
+      gr_$("body").append grPanel
+      gr_$("body").append grWidgetButton
 
-      $(".gr-widget-panel").append grPanelContainer
+      gr_$(".gr-widget-panel").append grPanelContainer
 
       if GetReview.Data.reviews_count == 0
-        $(".gr-widget-panel").addClass("gr-widget-panel-empty")
-        $(".gr-widget-panel").addClass("gr-#{GetReview.Data.color_schema}-bg")
-        $(".gr-widget-panel-container").append(GetReview.API.renderEmpty(GetReview.Data))
+        gr_$(".gr-widget-panel").addClass("gr-widget-panel-empty")
+        gr_$(".gr-widget-panel").addClass("gr-#{GetReview.Data.color_schema}-bg")
+        gr_$(".gr-widget-panel-container").append(GetReview.API.renderEmpty(GetReview.Data))
       else
-        $(".gr-widget-panel-container").append(GetReview.API.renderReviewsTop(GetReview.Data))
-        $(".gr-widget-panel-container").append(GetReview.API.renderReviewsHeader(GetReview.Data))
-        $(".gr-widget-panel-container").perfectScrollbar()
+        gr_$(".gr-widget-panel-container").append(GetReview.API.renderReviewsTop(GetReview.Data))
+        gr_$(".gr-widget-panel-container").append(GetReview.API.renderReviewsHeader(GetReview.Data))
+        gr_$(".gr-widget-panel-container").perfectScrollbar()
 
-      $(grWidgetButton).on "click", -> 
+      gr_$(grWidgetButton).on "click", -> 
         GetReview.API.showPanel()
-      $(grCloseOverlayButton).on "click", -> GetReview.API.hidePanel()
-      $(grOverlay).on "click", -> GetReview.API.hidePanel()
+      gr_$(grCloseOverlayButton).on "click", -> GetReview.API.hidePanel()
+      gr_$(grOverlay).on "click", -> GetReview.API.hidePanel()
 
   showPanel: ->
 
-    GetReview.API.showReviews() if $(".gr-reviews").size() == 0
+    GetReview.API.showReviews() if gr_$(".gr-reviews").size() == 0
 
-    overlay = $(".gr-overlay")
+    overlay = gr_$(".gr-overlay")
     overlay.css "opacity", 0
     overlay.show()
     overlay.animate({opacity: "0.8"}, 300)
 
-    closeIcon = $(".gr-close-overlay-icon")
+    closeIcon = gr_$(".gr-close-overlay-icon")
     closeIcon.css "top", "-40px"
     closeIcon.css "opacity", "0"
     closeIcon.show()
     closeIcon.animate {top: "30px", opacity: 1}, 300
 
-    panel = $(".gr-widget-panel")
+    panel = gr_$(".gr-widget-panel")
     panel.css("left", "-520px")
     panel.css "opacity", 0
     panel.show()
-    $(".gr-widget-panel-container").scrollTop(0)
+    gr_$(".gr-widget-panel-container").scrollTop(0)
     panel.animate {"left": "0px", "opacity": 1}, 300 
 
-    $(document).trigger "gr:widget:panel:opened"
+    gr_$(document).trigger "gr:widget:panel:opened"
 
 
   hidePanel: ->
-    overlay = $(".gr-overlay")
+    overlay = gr_$(".gr-overlay")
     overlay.animate {opacity: "0"}, 300, -> overlay.hide()
 
-    closeIcon = $(".gr-close-overlay-icon")
+    closeIcon = gr_$(".gr-close-overlay-icon")
     closeIcon.animate {top: "-40px", opacity: 0}, 300, -> closeIcon.hide()
 
-    panel = $(".gr-widget-panel")
+    panel = gr_$(".gr-widget-panel")
     panel.animate {"left": "-520px", "opacity": 0}, 300, -> panel.hide()
 
 
   showReviews: ->
     GetReview.API.showLoading()
     reviewsRoot = document.createElement("div")
-    $(reviewsRoot).addClass("gr-widget").addClass("gr-reviews")
+    gr_$(reviewsRoot).addClass("gr-widget").addClass("gr-reviews")
 
     GetReview.API.getReviews (reviews) ->
-      $(reviewsRoot).append(GetReview.API.renderReview(reviewData)) for reviewData in reviews
+      gr_$(reviewsRoot).append(GetReview.API.renderReview(reviewData)) for reviewData in reviews
       GetReview.API.hideLoading()
-      $(".gr-widget-panel-container").append reviewsRoot
+      gr_$(".gr-widget-panel-container").append reviewsRoot
 
   showLoading: ->
-    $(".gr-widget-panel-container").append GetReview.API.renderLoading()
+    gr_$(".gr-widget-panel-container").append GetReview.API.renderLoading()
 
   hideLoading: ->
-    $(".gr-widget-panel-container").find(".gr-reviews-loading").remove()
+    gr_$(".gr-widget-panel-container").find(".gr-reviews-loading").remove()
       
 
 
@@ -208,7 +210,7 @@ GetReview.API =
     """
 
   getWidget: (cb) ->
-    $.get(
+    gr_$.get(
       "http://getreview.ru/api/widget/#{GetReview.WidgetUID}.json",
       (data) ->
         if data.status = "success"
@@ -216,7 +218,7 @@ GetReview.API =
     )
 
   getReviews: (cb) ->
-    $.get(
+    gr_$.get(
       "http://getreview.ru/api/reviews/#{GetReview.WidgetUID}.json",
       (data) ->
         if data.status == "success"
