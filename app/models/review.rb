@@ -6,6 +6,10 @@ class Review < ActiveRecord::Base
   scope :confirmed, -> {where(moderated: true)}
   scope :rejected, -> {where(moderated: false)}
 
+  before_save do
+    set_unmoderated! if content_changed? or rate_changed?
+  end
+
   def confirmed?
     (self.moderated == true)
   end
@@ -16,5 +20,9 @@ class Review < ActiveRecord::Base
 
   def unmoderated?
     (self.moderated == nil)
+  end
+
+  def set_unmoderated!
+    self.moderated = nil
   end
 end
