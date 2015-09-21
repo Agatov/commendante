@@ -19,7 +19,7 @@ class Review < ActiveRecord::Base
   end
 
   def unmoderated?
-    (self.moderated == nil)
+    self.moderated.nil?
   end
 
   def set_unmoderated!
