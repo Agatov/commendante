@@ -1,29 +1,18 @@
-section.intro-section
+section.section-intro
   .wrapper
-    .topbar
-      .logo
-        = image_tag "landing/logo.png"
-
-      ul.navigation
-        li
-          a (href = "#about") Возможности
-
-        li
-          a (href = "#tariffs") Тарифы
-
-        li
-          a (href = "/sign_in") Вход
-
-        li 
-          a (href = "/sign_up") Регистрация
     .intro
-      h1
-        |
-          Увеличьте эффективность вашего сайта
-          <br />
-          с помощью виджета реальных отзывов
-      h3
-        |
-          В последние три года посетители перестали доверять отзывам на сайтах.
-          <br />
-          Мы нашли решение, которое все изменит.
+      .left-side
+        .logo
+          = image_tag "landing/logo.png"
+
+        .descriptor
+          |
+            Увеличьте количество звонков с вашего сайта
+            <br />
+            с помощью виджета реальных отзывов
+
+        .buttons-row
+          a.button.signin-button.white.ghost (href = "/sign_in") Вход
+          a.button.signup-button.white.ghost (href = "/sign_up") Регистрация
+      .right-side
+        = image_tag "landing/intro_widget.jpg"

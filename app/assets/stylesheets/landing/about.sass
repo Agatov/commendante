@@ -1,49 +1,43 @@
+.section-about
+  background: #5F6C90
+
+  .title
+    color: #fff
+
 .about
-  .rabbit
-    @extend .clearfix
+  @extend .clearfix
+  .trigger
+    float: left
+    width: 460px
+    margin-right: 20px
 
-    .img-block
-      box-shadow: 0 1px 2px rgba(0,0,0,0.2)
+    &:last-child
+      margin-right: 0px
 
+    .icon
+      margin-bottom: 30px
 
-    .content-block
-      width: 460px
+      &.first
+        width: 80px
+        height: 80px
+        background: asset_url("landing/first_about_icon.png") no-repeat
+        background-size: 80px 80px
 
-      h2
-        margin-bottom: 50px
-        font-family: "OpenSans-Regular"
-        font-size: 24px
-        line-height: 32px
-        color: #3DB8DB
+      &.second
+        width: 128px
+        height: 80px
+        background: asset_url("landing/second_about_icon.png") no-repeat
+        background-size: 128px 80px
 
+    .name
+      font-family: "OpenSans-Semibold"
+      font-size: 20px
+      line-height: 30px
+      color: #fff
+      margin-bottom: 20px
 
-    &.first
-      padding-bottom: 50px
-      border-bottom: 1px solid #DFE3E9
-
-      .img-block
-        float: left
-        width: 460px
-        height: 440px
-        
-        img
-          width: 460px
-          height: 440px
-
-      .content-block
-        float: right
-
-    &.second
-      padding-top: 50px
-
-      .img-block
-        float: right
-        width: 460px
-        height: 245px
-        
-        img
-          width: 460px
-          height: 245px
-
-      .content-block
-        float: left
+    .text
+      font-family: "OpenSans-Regular"
+      font-size: 18px
+      line-height: 27px
+      color: #fff
