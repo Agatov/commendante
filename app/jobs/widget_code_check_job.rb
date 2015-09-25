@@ -1,4 +1,4 @@
-class SendAnalyticsEventJob < ActiveJob::Base
+class WidgetCodeCheckJob < ActiveJob::Base
   queue_as :active_jobs_default
 
   def perform(widget_id)

@@ -26,6 +26,9 @@ class Account::AuthenticationsController < AccountsController
       @user.save
       login @user 
       UserMailer.user_created(@user).deliver_later
+
+      create_mixpanel_alias @account.id
+
       render json: {status: :success, location: account_root_path}
     else
       if @user.errors
@@ -56,6 +59,7 @@ class Account::AuthenticationsController < AccountsController
       @user.save
       login @user 
       UserMailer.user_created_short(@user, password).deliver_later
+      create_mixpanel_alias @account.id
       render json: {status: :success}
     else
       if @user.errors
@@ -138,6 +142,14 @@ class Account::AuthenticationsController < AccountsController
   end
 
   private
+
+  def create_mixpanel_alias(account_id)
+    if cookies[:user_temp_id]
+      MixpanelService.new(
+        {account_id: account_id, user_temp_id: cookies[:user_temp_id]}
+      ).create_alias
+    end
+  end
 
   def auth_params
     params.require(:user).permit(:email, :password)
