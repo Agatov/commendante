@@ -24,6 +24,7 @@
 
     onShow: ->
       @bindColorPicker()
+      super
 
     bindColorPicker: ->
       $(".color[color=#{@model.get('color_schema')}]").addClass "active"
