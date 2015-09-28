@@ -7,7 +7,8 @@ $ ->
     $(@).addClass "opened"
 
   $("#live-demo-button").on "click", ->
-    $(document).trigger "gr:widget:open"
+    event = new CustomEvent("gr:widget:open")
+    document.dispatchEvent event
 
 window.reachGoal = (goal) ->
   yaCounter.reachGoal goal

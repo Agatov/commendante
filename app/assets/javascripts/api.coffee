@@ -37,8 +37,9 @@ gr_$ ->
   GetReview.API.initialize()
   gr_$(document).on "gr:widget:initialize", -> GetReview.API.initialize()
 
-  gr_$(document).on "gr:widget:open", ->
+  document.addEventListener "gr:widget:open", (e) ->
     GetReview.API.showPanel()
+    
 
 GetReview.API = 
 
@@ -89,7 +90,6 @@ GetReview.API =
       gr_$(grOverlay).on "click", -> GetReview.API.hidePanel()
 
   showPanel: ->
-
     GetReview.API.showReviews() if gr_$(".gr-reviews").size() == 0
 
     overlay = gr_$(".gr-overlay")
