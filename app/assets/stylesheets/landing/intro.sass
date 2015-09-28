@@ -1,53 +1,59 @@
-.section-intro
+.intro-section
+  padding-top: 50px
+  padding-bottom: 85px
   background: #3DB8DB
-  padding-top: 75px
-  padding-bottom: 0px
+  color: #fff
 
-.intro
+.topbar
   @extend .clearfix
-  height: 625px
 
-  .left-side
+  .logo
     float: left
-    width: 460px
+    width: 199px
+    height: 54px
 
-    .logo
+    img
       width: 199px
       height: 54px
 
-      img
-        width: 199px
-        height: 54px
-
-    .descriptor
-      margin-top: 70px
-      margin-bottom: 50px
-      width: 460px
-      font-family: "OpenSans-Light"
-      font-size: 32px
-      line-height: 48px
-      color: #fff
-
-    .buttons-row
-      width: 460px
-
-      .button
-        margin-right: 20px
-
-        &.signin-button
-          width: 140px
-
-        &.signup-button
-          width: 220px
-
-        &:last-child
-          margin-right: 0px
-
-
-  .right-side
+  .navigation
+    display: block
     float: right
-    width: 470px
+    height: 54px
+    line-height: 54px
 
-    img
-      with: 470px
-      height: 625px
+    li
+      display: inline
+      margin-right: 20px
+
+      &:last-child
+        margin-right: 0px
+
+      a
+        font-family: "OpenSans-Regular"
+        font-size: 16px
+        color: #fff
+        text-decoration: none
+
+.intro
+  text-align: center
+
+  h1
+    margin-top: 85px
+    margin-bottom: 50px
+    font-family: "OpenSans-Semibold"
+    font-size: 44px
+    line-height: 64px
+    color: #fff
+
+  h3
+    font-family: "OpenSans-Regular"
+    font-size: 18px
+    line-height: 28px
+    color: #fff
+
+  .button.ghost.white
+    margin-top: 85px
+    width: 300px
+    height: 60px
+    line-height: 58px

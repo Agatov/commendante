@@ -1,11 +1,35 @@
+.section-faq
+  background: #EAF2F4
+
 .faq
 
   .question-box
-    margin-bottom: 40px
+    margin-bottom: 30px
+    box-sizing: border-box
+    padding: 20px
+    background: #fff
+    border: 1px solid #EAF2F4
+    cursor: pointer
+    @include transition(all 0.3s ease-in-out)
+
+    &:hover
+      border: 1px solid #3DB8DB
+
+    &.opened
+
+      &:hover
+        border: 1px solid #EAF2F4
+
+      .answer
+        display: block
+
 
   .question
-    font-family: "OpenSans-Semibold"
-    font-size: 20px
-    line-height: 30px
-    color: #5F6C90
-    margin-bottom: 25px
+    font-family: "OpenSans-Regular"
+    font-size: 18px
+    line-height: 24px
+    color: #53535B
+
+  .answer
+    display: none
+    margin-top: 20px

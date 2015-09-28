@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   root to: "landings#index"
 
+  get "/policy", to: "landings#policy"
+
   resource :account, only: :show
 
   match '/auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
