@@ -37,6 +37,9 @@ gr_$ ->
   GetReview.API.initialize()
   gr_$(document).on "gr:widget:initialize", -> GetReview.API.initialize()
 
+  gr_$(document).on "gr:widget:open", ->
+    GetReview.API.showPanel()
+
 GetReview.API = 
 
   initialize: ->
