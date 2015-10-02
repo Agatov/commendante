@@ -37,7 +37,7 @@ gr_$ ->
 
   try
     initEvent = new CustomEvent("gr:widget:ready")
-    document.dispatchEvent event
+    document.dispatchEvent initEvent
 
     document.addEventListener "gr:widget:open", (e) ->
       GetReview.API.showPanel()
@@ -45,8 +45,7 @@ gr_$ ->
     document.addEventListener "gr:widget:initialize", (e) ->
       GetReview.API.initialize()
       
-  catch
-    console.log "global error!!!!"
+  catch error
     # Обрабатывать не нужно
     
 
