@@ -42,10 +42,11 @@ gr_$ ->
     document.addEventListener "gr:widget:open", (e) ->
       GetReview.API.showPanel()
 
-    document.addEventListener "gr:widget:initialize", ->
+    document.addEventListener "gr:widget:initialize", (e) ->
       GetReview.API.initialize()
       
   catch
+    console.log "global error!!!!"
     # Обрабатывать не нужно
     
 
