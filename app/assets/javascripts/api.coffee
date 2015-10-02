@@ -33,12 +33,20 @@ GetReview = {}
 GetReview.WidgetUID = params.gr_widget_code
 
 gr_$ ->
-  gr_$(document).trigger "gr:widget:ready"
   GetReview.API.initialize()
-  gr_$(document).on "gr:widget:initialize", -> GetReview.API.initialize()
 
-  document.addEventListener "gr:widget:open", (e) ->
-    GetReview.API.showPanel()
+  try
+    initEvent = new CustomEvent("gr:widget:ready")
+    document.dispatchEvent event
+
+    document.addEventListener "gr:widget:open", (e) ->
+      GetReview.API.showPanel()
+
+    document.addEventListener "gr:widget:initialize", ->
+      GetReview.API.initialize()
+      
+  catch
+    # Обрабатывать не нужно
     
 
 GetReview.API = 
