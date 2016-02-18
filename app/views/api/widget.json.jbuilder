@@ -1,7 +1,13 @@
 json.status "success"
 json.company_name @widget.company_name
 json.site_url @widget.site_url
-json.reviews_count @widget.confirmed_reviews_count
+
+if @widget.free and @widget.confirmed_reviews_count > 10
+  json.reviews_count 10
+else
+  json.reviews_count @widget.confirmed_reviews_count
+end
+
 json.reviews_count_text Russian.p(@widget.confirmed_reviews_count, "реальный отзыв", "реальных отзыва", "реальных отзывов")
 
 json.show_widget (@widget.confirmed_reviews_count >= @widget.reviews_count_for_show)

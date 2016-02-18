@@ -21,12 +21,7 @@ class Widget < ActiveRecord::Base
   end
 
   def confirmed_reviews_count
-    if account.free? and self.reviews.confirmed.count > 10
-      10
-    else
-      self.reviews.confirmed.count
-    end
-    
+    self.reviews.confirmed.count
   end
 
   def rejected_reviews_count
