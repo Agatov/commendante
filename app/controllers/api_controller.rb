@@ -14,7 +14,7 @@ class ApiController < ApplicationController
     unless @widget
       return render json: {status: :error, message: "widget with id #{params[:widget]} was not found"}
     end
-    @reviews = @widget.reviews.where(moderated: true).order("id desc")
+    @reviews = @widget.reviews.confirmed.with_tariff_limit(@widget.account).order("id desc")
   end
 
   def cors_set_access_control_headers

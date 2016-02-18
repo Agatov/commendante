@@ -6,6 +6,12 @@ class Review < ActiveRecord::Base
   scope :confirmed, -> {where(moderated: true)}
   scope :rejected, -> {where(moderated: false)}
 
+  scope :with_tariff_limit, -> (account) {
+    if account.free?
+      limit(10)
+    end
+  }
+
   before_save do
     set_unmoderated! if content_changed? or rate_changed?
   end
