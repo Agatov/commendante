@@ -2,7 +2,7 @@ json.status "success"
 json.company_name @widget.company_name
 json.site_url @widget.site_url
 
-if @widget.free and @widget.confirmed_reviews_count > 10
+if @widget.account.free? and @widget.confirmed_reviews_count > 10
   json.reviews_count 10
 else
   json.reviews_count @widget.confirmed_reviews_count
