@@ -58,7 +58,7 @@ group :production do
   gem 'unicorn'
 end
 
-gem 'pg'
+gem 'pg', '0.18.4'
 
 gem 'russian'
 gem 'bootstrap-sass', '~> 3.3.4'
