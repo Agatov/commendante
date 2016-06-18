@@ -1,0 +1,13 @@
+//= require lib/jquery
+//= require lib/underscore
+//= require lib/backbone
+//= require lib/backbone.wreqr
+//= require skim
+//= require lib/backbone.marionette
+//= require lib/plugins/backbone-relational
+//= require lib/perfect-scrollbar.jquery
+//= require_tree ./widget/config
+//= require widget/app
+//= require_tree ./widget/entities
+//= require_tree ./widget/views
+//= require_tree ./widget/apps

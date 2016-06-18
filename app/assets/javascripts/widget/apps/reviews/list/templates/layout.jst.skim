@@ -1,0 +1,22 @@
+.widget-top.purple-bg
+  a.button (href = "#{@review_board_url}" target = "_blank") Написать свой отзыв
+
+.reviews-header
+  .reviews-total-rate
+    - switch @average_rate
+      - when 1
+        .reviews-total-rate-stars.one-star
+      - when 2
+        .reviews-total-rate-stars.two-stars
+      - when 3
+        .reviews-total-rate-stars.three-stars
+      - when 4
+        .reviews-total-rate-stars.four-stars
+      - when 5
+        .reviews-total-rate-stars.five-stars
+  .reviews-total-count
+    = "#{@reviews_count} #{@reviews_count_text} о компании"
+  .reviews-company-name = "«#{@company_name}»"
+
+
+.list-region

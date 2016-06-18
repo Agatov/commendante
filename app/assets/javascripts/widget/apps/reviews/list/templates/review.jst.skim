@@ -1,0 +1,25 @@
+.review-header
+  .review-author-avatar
+    img( src = "#{@avatar}")
+
+  .review-author-details
+    .review-author-name = @author_name
+    .review-author-url 
+      a (href = "#{@author_url}" target = "_blank") = @author_url
+
+  .review-right
+    - switch @rate
+      - when 1
+        .review-rate-stars.one-star
+      - when 2
+        .review-rate-stars.two-stars
+      - when 3
+        .review-rate-stars.three-stars
+      - when 4
+        .review-rate-stars.four-stars
+      - when 5
+        .review-rate-stars.five-stars
+    .review-date = @date
+
+.review-body
+  == @content

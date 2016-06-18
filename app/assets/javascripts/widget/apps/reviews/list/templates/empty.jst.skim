@@ -1,0 +1,7 @@
+.panel-empty-box
+  .panel-empty-title
+    |
+      Увы, никто еще не написал ни одного отзыва,
+      но вы можете быть первым!
+
+  a.button (href = "#" target = "_blank") Написать первый отзыв

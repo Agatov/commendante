@@ -1,0 +1,16 @@
+.widget
+  #main-region
+
+javascript:
+  $(function() {
+    WidgetApp.start({widget: {
+      uid: "#{@widget.uid}",
+      company_name: "#{@widget.company_name}",
+      reviews_count: #{@widget.reviews_count_for_show},
+      average_rate: #{@widget.average_rate || 0},
+      color_schema: "#{@widget.color_schema}",
+      hide_reviews_date: #{@widget.hide_reviews_date},
+      review_board_url: "#{'http://' + HOSTNAME + '/' + @widget.board_url}",
+      reviews_count_text: "#{Russian.p(@widget.reviews_count_for_show, "реальный отзыв", "реальных отзыва", "реальных отзывов")}"
+    }});
+  });
